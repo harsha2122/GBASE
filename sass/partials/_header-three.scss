@@ -1,0 +1,22 @@
+.header-area {
+  &.style-3 {
+    .header-menu-area {
+      top: 0;
+    }
+    .search-btn-with-btn {
+      .btn-wrapper {
+        @include rmaxwd(1399) {
+          display: none;
+        }
+      }
+      .cta-btn-wrapper {
+        @include lg {
+          display: none;
+        }
+        @include xl {
+          display: none;
+        }
+      }
+    }
+  }
+}
