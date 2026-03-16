@@ -48,12 +48,23 @@ document.addEventListener('click', function(e) {
 // 2. Update Selected Tags Display
 function updateTags() {
   const selected = [];
-  // Collect all checked inputs from all multi-dropdowns
   document.querySelectorAll(".multi-dropdown input:checked").forEach((cb) => {
     selected.push(cb.value);
   });
 
-  const container = document.getElementById("selected-list");
+  const productAnchor = document.querySelector(".multi-dropdown.w-100")?.closest(".gbase-form-group");
+  let container = document.getElementById("selected-list");
+
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "selected-list";
+    container.className = "selected-list";
+  }
+
+  if (productAnchor) {
+    productAnchor.insertAdjacentElement("afterend", container);
+  }
+
   if (container) {
     container.innerHTML = "";
     selected.forEach((item) => {
@@ -151,4 +162,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
   }
+});
+
+// Country dropdown: when "Others" is selected, show an open text field.
+function syncCountryOtherInput(select) {
+  if (!select) return;
+
+  const formGroup = select.closest('.gbase-form-group');
+  if (!formGroup) return;
+
+  const otherInput = formGroup.querySelector('.country-other-input');
+  if (!otherInput) return;
+
+  const isOthers = (select.value || '').trim().toLowerCase() === 'others';
+  otherInput.style.display = isOthers ? 'block' : 'none';
+  otherInput.required = isOthers;
+
+  if (!isOthers) {
+    otherInput.value = '';
+  }
+}
+
+document.addEventListener('change', function (e) {
+  const select = e.target.closest('select.country-select');
+  if (!select) return;
+  syncCountryOtherInput(select);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('select.country-select').forEach(syncCountryOtherInput);
 });
