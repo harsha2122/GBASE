@@ -208,7 +208,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var formData = new FormData(form);
 
-      fetch('/send_mail.php', { method: 'POST', body: formData })
+      // Compute path to send_mail.php relative to current page depth
+      var depth = window.location.pathname.replace(/\/[^/]*$/, '').split('/').filter(Boolean).length;
+      var mailPath = (depth >= 1 ? '../'.repeat(depth) : '') + 'send_mail.php';
+
+      fetch(mailPath, { method: 'POST', body: formData })
         .then(function (res) { return res.json(); })
         .then(function (data) {
           var msgDiv = form.querySelector('.form-response-msg');
