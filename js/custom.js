@@ -192,3 +192,50 @@ document.addEventListener('change', function (e) {
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('select.country-select').forEach(syncCountryOtherInput);
 });
+
+// -----------------------------------------------------------------------
+// Contact form AJAX submission — handles all .gbase-contact-form forms
+// Works from any subdirectory because it uses the absolute /send_mail.php path.
+// -----------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('form.gbase-contact-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var btn = form.querySelector('.gbase-submit-btn');
+      var originalText = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
+
+      var formData = new FormData(form);
+
+      fetch('/send_mail.php', { method: 'POST', body: formData })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          var msgDiv = form.querySelector('.form-response-msg');
+          if (!msgDiv) {
+            msgDiv = document.createElement('div');
+            msgDiv.className = 'form-response-msg';
+            msgDiv.style.cssText = 'margin-top:14px;padding:12px 16px;border-radius:6px;font-size:15px;font-weight:500;';
+            form.appendChild(msgDiv);
+          }
+          if (data.success) {
+            msgDiv.style.background = '#d4edda';
+            msgDiv.style.color = '#155724';
+            msgDiv.style.border = '1px solid #c3e6cb';
+            msgDiv.textContent = data.message;
+            form.reset();
+          } else {
+            msgDiv.style.background = '#f8d7da';
+            msgDiv.style.color = '#721c24';
+            msgDiv.style.border = '1px solid #f5c6cb';
+            msgDiv.textContent = data.message;
+          }
+          if (btn) { btn.textContent = originalText; btn.disabled = false; }
+        })
+        .catch(function () {
+          if (btn) { btn.textContent = originalText; btn.disabled = false; }
+          alert('Network error. Please check your connection and try again.');
+        });
+    });
+  });
+});
