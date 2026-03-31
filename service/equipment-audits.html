@@ -35,100 +35,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<link href="../css/search.css" rel="stylesheet">
-<style>
-        .video-thumb-wrap {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            max-width: 40%;
-            cursor: pointer;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .video-thumb-wrap img {
-            width: 100%;
-            display: block;
-        }
-
-        .video-thumb-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.35);
-            opacity: 0;
-            transition: opacity 0.25s ease;
-        }
-
-        .video-thumb-wrap:hover .video-thumb-overlay,
-        .video-thumb-wrap:focus-within .video-thumb-overlay {
-            opacity: 1;
-        }
-
-        .video-play-btn {
-            width: 74px;
-            height: 74px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(255, 0, 0, 0.95);
-            color: #fff;
-            font-size: 26px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-            cursor: pointer;
-        }
-
-        .video-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 20px;
-        }
-
-        .video-modal.open {
-            display: flex;
-        }
-
-        .video-modal-content {
-            position: relative;
-            width: min(960px, 96vw);
-            aspect-ratio: 16 / 9;
-            background: #000;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .video-modal-content iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .video-modal-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 38px;
-            height: 38px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            font-size: 22px;
-            line-height: 1;
-            cursor: pointer;
-            z-index: 1;
-        }
-    </style>
+<link href="/css/search.css" rel="stylesheet">
 </link></head>
 <body>
 <a class="float" href="https://api.whatsapp.com/send?phone=919315738621" target="_blank">
@@ -142,8 +49,7 @@
 <div class="gbase-topbar-container">
 <div class="gbase-topbar-left">
 <a href="tel:+919810384249" style="color: #fff;"><i class="fa-solid fa-phone"></i> +91 9810384249</a>
-<a href="mailto:info@gbase.co.in" style="color: #fff;"><i class="fa-solid fa-envelope"></i>
-                    info@gbase.co.in</a>
+<a href="mailto:info@gbase.co.in" style="color: #fff;"><i class="fa-solid fa-envelope"></i> info@gbase.co.in</a>
 </div>
 <div class="gbase-topbar-right">
 <select class="gbase-lang-switch">
@@ -255,14 +161,14 @@
 </div>
 <!-- <div class="col-4 mb-3">
                                   <a href="/process/cutting.html" class="gbase-menu-product">
-                                      <img src="images/product/2.png" alt="Washing">
+                                      <img src="/images/product/2.png" alt="Washing">
                                       <h6>Washing</h6>
                                       <p>Efficient washing and sanitation systems.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
                                   <a href="/process/cutting.html" class="gbase-menu-product">
-                                      <img src="images/product/3.png" alt="Peeling">
+                                      <img src="/images/product/3.png" alt="Peeling">
                                       <h6>Peeling</h6>
                                       <p>Minimize waste with advanced peeling.</p>
                                   </a>
@@ -282,14 +188,14 @@
 </div>
 <!-- <div class="col-4 mb-3">
                                   <a href="/product/plate-freezer.html" class="gbase-menu-product">
-                                      <img src="images/product/plate freezer.png" alt="Plate Freezer">
+                                      <img src="/images/product/plate freezer.png" alt="Plate Freezer">
                                       <h6>Plate Freezer</h6>
                                       <p>Rapid block freezing efficiency.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
                                   <a href="/product/carton-box-freezer.html" class="gbase-menu-product">
-                                      <img src="images/product/carton-box-freezer.png" alt="Carton Box Freezer">
+                                      <img src="/images/product/carton-box-freezer.png" alt="Carton Box Freezer">
                                       <h6>Carton Box Freezer</h6>
                                       <p>Ideal for boxed product freezing.</p>
                                   </a>
@@ -330,14 +236,14 @@
                               </div>
                               <div class="col-4 mb-3">
                                   <a href="/heating/oven.html" class="gbase-menu-product">
-                                      <img src="images/product/4.png" alt="Linear Ovens">
+                                      <img src="/images/product/4.png" alt="Linear Ovens">
                                       <h6>Linear Ovens</h6>
                                       <p>Flexible and uniform heating.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
                                   <a href="/heating/oven.html" class="gbase-menu-product">
-                                      <img src="images/product/2.png" alt="Contact Grills">
+                                      <img src="/images/product/2.png" alt="Contact Grills">
                                       <h6>Contact Grills</h6>
                                       <p>Authentic grill marks and flavor.</p>
                                   </a>
@@ -357,14 +263,14 @@
 </div>
 <!-- <div class="col-4 mb-3">
                                   <a href="/sorting/sorting.html" class="gbase-menu-product">
-                                      <img src="images/product/1.png" alt="Conveyors">
+                                      <img src="/images/product/1.png" alt="Conveyors">
                                       <h6>Conveyors</h6>
                                       <p>Smart handling solutions.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
                                   <a href="/sorting/sorting.html" class="gbase-menu-product">
-                                      <img src="images/product/sidebar-image.png" alt="Others">
+                                      <img src="/images/product/sidebar-image.png" alt="Others">
                                       <h6>Others</h6>
                                       <p>Additional sorting accessories.</p>
                                   </a>
@@ -447,8 +353,8 @@
 <!-- ===================== MOBILE HEADER ===================== -->
 <div class="gbase-header-mobile">
 <div class="gbase-mobile-inner">
-<a class="gbase-logo" href="index.html">
-<img src="../images/logo/logo.png"/>
+<a class="gbase-logo" href="/">
+<img src="/images/logo/logo.png"/>
 </a>
 <div class="gbase-mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
 </div>
@@ -456,15 +362,15 @@
 <div class="gbase-mobile-drawer">
 <div class="gbase-mobile-content">
 <div class="d-flex justify-content-between align-items-center mb-4" style="padding-bottom: 20px; border-bottom: 1px solid #eee;">
-<a href="index.html">
-<img alt="GBASE" src="../images/logo/logo.png" style="max-width: 120px;"/>
+<a href="/">
+<img alt="GBASE" src="/images/logo/logo.png" style="max-width: 120px;"/>
 </a>
 <div class="gbase-mobile-close" style="padding-bottom: 0;">
 <i class="fa-solid fa-xmark"></i>
 </div>
 </div>
 <ul class="gbase-mobile-nav">
-<li><a href="index.html">Home</a></li>
+<li><a href="/">Home</a></li>
 <li class="gbase-mobile-dropdown">
 <span>Products</span>
 <ul>
@@ -538,7 +444,7 @@
 <div class="menu-sidebar-content">
 <div class="menu-sidebar-logo">
 <a href="javascript:void(0)">
-<img alt="logo" src="../images/logo/logo.png" style="background-color: #fff; border-radius: 10px">
+<img alt="logo" src="/images/logo/logo.png" style="background-color: #fff; border-radius: 10px">
 </img></a>
 </div>
 <div class="mobile-nav-menu"></div>
@@ -546,12 +452,9 @@
 <div class="menu-sidebar-single-widget">
 <div class="header-contact-info">
 <p>
-                                Established in 2004, GBASE Technologies serves corporate,
-                                MSMEs, and government agencies in horticulture produce —
-                                offering project design, equipment sales, aftersales, and
-                                maintenance support. Our experienced team ensures reliable
-                                service across India.
-                            </p>
+                GBASE Technologies was established in 2004.
+                Happy customers in Australia, Bangladesh, India, Indonesia, New Zealand and Sri Lanka.
+              </p>
 </div>
 </div>
 <div class="menu-sidebar-single-widget">
@@ -582,59 +485,20 @@
 <div class="col-md-12">
 <div class="breadcrumb-wrapper">
 <div class="page-heading">
-<h3 class="page-title">IQF Freezer</h3>
+<h3 class="page-title">Equipment Audits</h3>
 </div>
 <div class="breadcrumb-list">
 <ul>
 <li><a href="/">Home</a></li>
-<li class="active"><a href="/freezing/freezing.html">IQF Freezer</a></li>
+<li class="active"><a href="/service/equipment-audits.html">Equipment Audits</a></li>
 </ul>
 </div>
-<!-- <blockquote class="text-center" style="font-size: 28px; font-style: italic; margin-top: 20px;">
-                            "80 years of
-                            boundless quality have ensured worldwide coverage. Call us for Greefa sales &amp; service in
-                            your area"
-                        </blockquote> -->
 </div>
 </div>
 </div>
 </div>
 </div>
-<!-- Static Hero Section Start -->
-<div class="gbase-static-hero-wrapper">
-<div class="container">
-<div class="row">
-<!-- CARD 1 -->
-<div class="col-lg-12">
-<div class="gbase-hero-static-item d-flex flex-column align-items-center text-center" style="background:#fff; padding:10px 40px 40px 40px; border-radius:10px;">
-<!-- IMAGE -->
-<div aria-label="Play OctoFrost video" class="video-thumb-wrap mb-4" id="iqf-video-trigger">
-<img alt="OctoFrost Freezer" class="img-fluid rounded" src="../images/project/IQF.png"/>
-<div class="video-thumb-overlay">
-<button aria-label="Play video" class="video-play-btn" type="button">
-<i class="fa-solid fa-play"></i>
-</button>
-</div>
-</div>
-<!-- TEXT -->
-<h2 class="title" style="color:#000; font-size:32px; font-weight:700; margin-bottom:20px;">
-                            OctoFrost IQF Freezer
-                        </h2>
-<p class="desc" style="color:#222; font-size:22px; margin-bottom:10px;">
-                             Innovative open design to deliver natural appearance, high yields & low lifetime cost of operations.
-                        </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="video-modal" id="iqf-video-modal">
-<div class="video-modal-content">
-<button aria-label="Close video" class="video-modal-close" id="iqf-video-close" type="button">×</button>
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" id="iqf-video-frame" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player"></iframe>
-</div>
-</div>
-<hr/>
+<!-- Contact Form Area Start -->
 <!-- Contact Form Area Start -->
 <div class="contact-form-area mt-3">
 <div class="container">
@@ -642,91 +506,58 @@
 <div class="gbase-contact-header">
 <i class="fa-light fa-temperature-snowflake"></i>
 <h3>
-                        Your questions deserve the best answers.
-                        <span>Let's get in touch and talk.</span>
+            Your questions deserve the best answers.
+            <span>Let's get in touch and talk about Individual Quick Freezing and
+              Processing.</span>
 </h3>
 </div>
 <form action="#" class="gbase-contact-form" method="post">
-<div class="row"><input name="page_source" type="hidden" value="freezing/freezing.html"/>
-<!-- Company -->
+<div class="row"><input name="page_source" type="hidden" value="service/equipment-audits.html"/>
 <div class="col-md-6">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="company" required="" type="text"/>
-<label>Company <span style="color:red">*</span></label>
+<input class="gbase-form-control" name="company" placeholder="Company *" required="" type="text"/>
 </div>
 </div>
-<!-- Name -->
 <div class="col-md-6">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="name" required="" type="text"/>
-<label>Name <span style="color:red">*</span></label>
+<input class="gbase-form-control" name="name" placeholder="Name *" required="" type="text"/>
 </div>
 </div>
-<!-- City -->
 <div class="col-md-6">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="city" type="text"/>
-<label>City <span style="color:red">*</span></label>
+<input class="gbase-form-control" name="city" placeholder="City" type="text"/>
 </div>
 </div>
-<!-- Country -->
 <div class="col-md-6">
 <div class="gbase-form-group">
-<select class="gbase-form-control country-select" name="country" required="" style="border: 2px solid;"><option disabled="" selected="" value="">Country *</option><option value="Australia">Australia</option><option value="Bangladesh">Bangladesh</option><option value="India">India</option><option value="Indonesia">Indonesia</option><option value="New Zealand">New Zealand</option><option value="Sri Lanka">Sri Lanka</option><option value="Others">Others</option></select>
+<select class="gbase-form-control country-select" name="country" required=""><option disabled="" selected="" value="">Country *</option><option value="Australia">Australia</option><option value="Bangladesh">Bangladesh</option><option value="India">India</option><option value="Indonesia">Indonesia</option><option value="New Zealand">New Zealand</option><option value="Sri Lanka">Sri Lanka</option><option value="Others">Others</option></select>
 <input class="gbase-form-control country-other-input" name="country_other" placeholder="Please specify country" style="display:none; margin-top:10px;" type="text"/>
-<label>Country <span style="color:red">*</span></label>
 </div>
 </div>
-<!-- Email -->
 <div class="col-md-6">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="email" required="" type="email"/>
-<label>Email <span style="color:red">*</span></label>
+<input class="gbase-form-control" name="email" placeholder="Email *" required="" type="email"/>
 </div>
 </div>
-<!-- Phone -->
 <div class="col-md-6">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="phone" required="" type="tel"/>
-<label>Phone <span style="color:red">*</span></label>
+<input class="gbase-form-control" name="phone" placeholder="Phone *" required="" type="tel"/>
 </div>
 </div>
-<!-- Website -->
 <div class="col-12">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="website" type="url"/>
-<label>Website</label>
+<input class="gbase-form-control" name="website" placeholder="Website" type="url"/>
 </div>
 </div>
-<!-- Products -->
 <div class="col-12">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="products" required="" type="text"/>
-<label>Products <span style="color:red">*</span></label>
+<textarea class="gbase-form-control" name="message" placeholder="Type in your needs *" required="" rows="4"></textarea>
 </div>
 </div>
-<!-- Cut Sizes -->
 <div class="col-12">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="cut_sizes" required="" type="text"/>
-<label>Cut Sizes <span style="color:red">*</span></label>
-</div>
-</div>
-<!-- Capacities -->
-<div class="col-12">
-<div class="gbase-form-group">
-<input class="gbase-form-control" name="capacities" required="" type="text"/>
-<label>Capacities <span style="color:red">*</span></label>
-</div>
-</div>
-<!-- Multi Select (Products You Process) -->
-<div class="col-12">
-<div class="gbase-form-group" style="flex-direction: column;">
-<label style="margin-bottom: 6px; display:block;">
-                                    Select the type of product that you process
-                                </label>
 <div class="multi-wrap">
-<button class="multi-btn" type="button">Select ▾</button>
+<button class="multi-btn" type="button">Select the type of product that you process * ▾</button>
 <div class="multi-dropdown w-100">
 <label><input name="product_types[]" type="checkbox" value="Seafood"/> Seafood</label>
 <label><input name="product_types[]" type="checkbox" value="Meat"/> Meat</label>
@@ -742,56 +573,114 @@
 <div class="selected-list" id="selected-list"></div>
 </div>
 </div>
-<!-- Pre-Process -->
 <div class="row">
+<!-- Pre-Process -->
+<div class="col-lg-3 col-md-6 mb-3">
+<div class="multi-wrap">
+<button class="multi-btn" type="button">Pre-Process ▾</button>
+<div class="multi-dropdown">
+<label><input name="pre_process[]" type="checkbox" value="Cutting">
+                      Cutting</input></label>
+<label><input name="pre_process[]" type="checkbox" value="Dicing"> Dicing</input></label>
+<label><input name="pre_process[]" type="checkbox" value="Slicing">
+                      Slicing</input></label>
+<label><input name="pre_process[]" type="checkbox" value="Washing">
+                      Washing</input></label>
+<label><input name="pre_process[]" type="checkbox" value="Blanching">
+                      Blanching</input></label>
+<label><input name="pre_process[]" type="checkbox" value="Chilling">
+                      Chilling</input></label>
+<label><input name="pre_process[]" type="checkbox" value="De-watering">
+                      De-watering</input></label>
+<label><input name="pre_process[]" type="checkbox" value="Peeling">
+                      Peeling</input></label>
+</div>
+</div>
+<div class="selected-list" id="preprocess-selected-list"></div>
+</div>
+<!-- Freezing -->
 <div class="col-lg-3 col-md-6 mb-3">
 <div class="multi-wrap">
 <button class="multi-btn" type="button">Freezing ▾</button>
 <div class="multi-dropdown">
-<label><input name="freezing_equipment[]" type="checkbox" value="IQF"/> IQF</label>
-<label><input name="freezing_equipment[]" type="checkbox" value="Impingement Freezer"/> Impingement
-                                            Freezer</label>
-<label><input name="freezing_equipment[]" type="checkbox" value="Spiral Freezer"/> Spiral Freezer</label>
-<label><input name="freezing_equipment[]" type="checkbox" value="Plate Freezer"/> Plate Freezer</label>
-<label><input name="freezing_equipment[]" type="checkbox" value="Carton Box Freezer"/> Carton Box
-                                            Freezer</label>
-<!-- NEW OTHERS OPTION -->
-<label><input id="freezing-others-checkbox" name="freezing_equipment[]" type="checkbox" value="Others"/>
-                                            Others</label>
+<label><input name="freezing_equipment[]" type="checkbox" value="IQF"> IQF</input></label>
+<label><input name="freezing_equipment[]" type="checkbox" value="Impingement Freezer"/>
+                      Impingement Freezer</label>
+<label><input name="freezing_equipment[]" type="checkbox" value="Spiral Freezer"/> Spiral
+                      Freezer</label>
+<label><input name="freezing_equipment[]" type="checkbox" value="Plate Freezer"/> Plate
+                      Freezer</label>
+<label><input name="freezing_equipment[]" type="checkbox" value="Carton Box Freezer"/>
+                      Carton Box Freezer</label>
+</div>
+</div>
+</div>
+<!-- Heating -->
+<div class="col-lg-3 col-md-6 mb-3">
+<div class="multi-wrap">
+<button class="multi-btn" type="button">Heating ▾</button>
+<div class="multi-dropdown">
+<label><input name="heating_equipment[]" type="checkbox" value="Contact Grills"/>
+                      Contact Grills</label>
+<label><input name="heating_equipment[]" type="checkbox" value="Oil Fryer"/> Oil
+                      Fryer</label>
+<label><input name="heating_equipment[]" type="checkbox" value="Baking Ovens"/> Baking
+                      Ovens</label>
+<label><input name="heating_equipment[]" type="checkbox" value="Oil Filtration"/> Oil
+                      Filtration</label>
+</div>
+</div>
+</div>
+<!-- Sorting -->
+<div class="col-lg-3 col-md-6 mb-3">
+<div class="multi-wrap">
+<button class="multi-btn" type="button">Round Fruit Sorting ▾</button>
+<div class="multi-dropdown">
+<label><input name="equipment_options[]" type="checkbox" value="Sorting Machines"/>
+                      Sorting Machines</label>
+<label><input name="equipment_options[]" type="checkbox" value="Conveyors"/>
+                      Conveyors</label>
+<label><input name="equipment_options[]" type="checkbox" value="Others"/> Others</label>
 </div>
 </div>
 </div>
 </div>
-<div class="col-12" id="freezing-others-input" style="display:none;">
-<div class="gbase-form-group">
-<input class="gbase-form-control" name="others_specify" type="text">
-<label>Others (Specify)</label>
-</input></div>
-</div>
-<!-- Type of Business -->
 <div class="col-12">
 <div class="gbase-form-group">
-<select class="gbase-form-control" name="business_type" required="" style="border: 2px solid;">
-<option selected="">Processor</option>
+<select class="gbase-form-control" name="business_type" required="">
+<option disabled="" selected="" value="">
+                    Type of Business *
+                  </option>
+<option>Processor</option>
 <option>Distributor</option>
 <option>Retailer</option>
 <option>Other</option>
 </select>
-<label>Type of Business <span style="color:red">*</span></label>
 </div>
 </div>
-<!-- Estimated Production -->
 <div class="col-12">
 <div class="gbase-form-group">
-<input class="gbase-form-control" name="production" required="" type="text">
-<label>Estimated production in tons/hr <span style="color:red">*</span></label>
-</input></div>
+<input class="gbase-form-control" name="production" placeholder="Estimated production in tons/hr *" required="" type="text"/>
 </div>
-<!-- Submit -->
+</div>
+<div class="col-12">
+<div class="gbase-form-group">
+<select class="gbase-form-control" name="referral">
+<option disabled="" selected="" value="">
+                    How did you find us?
+                  </option>
+<option>Search Engine</option>
+<option>Social Media</option>
+<option>Referral</option>
+<option>Exhibition</option>
+<option>Other</option>
+</select>
+</div>
+</div>
 <div class="col-12">
 <button class="gbase-submit-btn" type="submit">
-                                SEND MESSAGE
-                            </button>
+                SEND MESSAGE
+              </button>
 </div>
 </div>
 </form>
@@ -1101,17 +990,17 @@
 <div class="search-form-inner">
 <div class="search-content-filed">
 <form action="javascript:void(0)" class="search-form" method="get" role="search">
-<input name="post_type" type="hidden" value="post">
+<input name="post_type" type="hidden" value="post"/>
 <div class="search-form-input">
 <div class="search-icon">
 <i class="fa-light fa-magnifying-glass"></i>
 </div>
-<input placeholder="Search" type="search">
+<input placeholder="Search" type="search"/>
 <button aria-label="Search" class="theme-btn" title="Search" type="submit">
-                            Search
-                        </button>
-</input></div>
-</input></form>
+              Search
+            </button>
+</div>
+</form>
 <span class="search-close">
 <i class="fa-light fa-xmark"></i>
 </span>
@@ -1139,23 +1028,23 @@
 <div class="subscribe-widget">
 <div class="subscribe-form-title">
 <h3 class="title">
-                                                Stay updated with the latest from <br/>
-                                                GBASE Technologies
-                                            </h3>
+                        Stay updated with the latest from <br/>
+                        GBASE Technologies
+                      </h3>
 </div>
 <div class="subscribe-form-widget">
 <p class="description">
-                                                Join our mailing list for updates on horticulture
-                                                engineering, products, and services.
-                                            </p>
+                        Join our mailing list for updates on horticulture
+                        engineering, products, and services.
+                      </p>
 <form action="javascript:void(0)">
 <div class="mc4wp-form-fields">
 <div class="single-field">
-<input placeholder="Enter your email" required="" type="email">
-</input></div>
+<input placeholder="Enter your email" required="" type="email"/>
+</div>
 <button class="submit-btn" type="submit">
-                                                        Subscribe Now
-                                                    </button>
+                            Subscribe Now
+                          </button>
 </div>
 </form>
 </div>
@@ -1163,8 +1052,8 @@
 </div>
 </div>
 </div>
-<hr>
-</hr></div>
+<hr/>
+</div>
 </div>
 <!-- Footer Main Content -->
 <div class="container">
@@ -1179,10 +1068,9 @@
 </a>
 </div>
 <p>
-                                        GBASE Technologies was established in 2004.
-                                        Happy customers in Australia, Bangladesh, India, Indonesia, New Zealand and Sri
-                                        Lanka.
-                                    </p>
+                    GBASE Technologies was established in 2004.
+                    Happy customers in Australia, Bangladesh, India, Indonesia, New Zealand and Sri Lanka.
+                  </p>
 </div>
 </div>
 </div>
@@ -1201,8 +1089,7 @@
 <a href="/consulting.html">Services</a>
 <ul class="sub-menu">
 <li><a href="/service/online-support.html">Online Support / Troubleshooting</a></li>
-<li><a href="/service/onsite-support.html">Onsite Support / Site Visit</a>
-</li>
+<li><a href="/service/onsite-support.html">Onsite Support / Site Visit</a></li>
 <li><a href="/service/equipment-audits.html">Equipment Audits</a></li>
 </ul>
 </li>
@@ -1261,11 +1148,11 @@
 <div class="footer-bottom-menu-wrapper">
 <div class="copyright-text">
 <p>
-                                            © <span id="currentYear">2025</span>
+                      © <span id="currentYear">2025</span>
 <strong>GBASE Technologies</strong>. All Rights
-                                            Reserved. <br/>Import-Export License (DGFT) | GST
-                                            Registered (India)
-                                        </p>
+                      Reserved. <br/>Import-Export License (DGFT) | GST
+                      Registered (India)
+                    </p>
 </div>
 <div class="footer-bottom-menu">
 <ul>
@@ -1286,41 +1173,6 @@
 <!-- Footer End -->
 <!--- End Footer !-->
 
-
-<script>
-        (function () {
-            const trigger = document.getElementById("iqf-video-trigger");
-            const modal = document.getElementById("iqf-video-modal");
-            const closeBtn = document.getElementById("iqf-video-close");
-            const frame = document.getElementById("iqf-video-frame");
-            const videoUrl = "https://www.youtube.com/embed/7vFPlqomHkw?autoplay=1&rel=0";
-
-            if (!trigger || !modal || !closeBtn || !frame) return;
-
-            function openModal() {
-                frame.src = videoUrl;
-                modal.classList.add("open");
-                modal.setAttribute("aria-hidden", "false");
-            }
-
-            function closeModal() {
-                modal.classList.remove("open");
-                modal.setAttribute("aria-hidden", "true");
-                frame.src = "";
-            }
-
-            trigger.addEventListener("click", openModal);
-            closeBtn.addEventListener("click", closeModal);
-            modal.addEventListener("click", function (e) {
-                if (e.target === modal) closeModal();
-            });
-            document.addEventListener("keydown", function (e) {
-                if (e.key === "Escape" && modal.classList.contains("open")) {
-                    closeModal();
-                }
-            });
-        })();
-    </script>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery.nice-select.min.js"></script>
@@ -1344,12 +1196,12 @@
 </button>
 <div class="gbase-search-header">
 <i class="fa-solid fa-magnifying-glass"></i>
-<input autocomplete="off" id="gbase-search-input" placeholder="Search this page..." type="text">
-</input></div>
+<input autocomplete="off" id="gbase-search-input" placeholder="Search this page..." type="text"/>
+</div>
 <div class="gbase-search-results" id="gbase-search-results"></div>
 </div>
 </div>
-<script src="../js/page-search.js"></script>
+<script src="/js/page-search.js"></script>
 </body>
 </html>
 

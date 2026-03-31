@@ -5855,7 +5855,7 @@ ease-out;
 }
 @media only screen and (min-width: 1400px) and (max-width: 1699px) {
   .about-image-card.style-1 {
-    margin-left: -70px;
+    margin-left: 0px;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -5955,7 +5955,7 @@ ease-out;
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 126px;
+  width: 90px;
   height: 108px;
   background-color: #ffffff;
   border-radius: 0 30px 0 30px;
@@ -15393,7 +15393,7 @@ ul.children {
   position: relative;
   z-index: 2;
   color: #fff;
-  padding: 20px 10%;
+  padding: 20px 0%;
 }
 
 .gbase-hero-content {
@@ -15401,7 +15401,7 @@ ul.children {
     z-index: 2;
     display: flex;
     color: #fff;
-    padding: 20px 10%;
+    padding: 20px 0%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -16464,7 +16464,7 @@ textarea.gbase-form-control {
 
 /* LOGO */
 .header-logo img {
-  height: 110px;
+  height: 6vw;
   width: auto;
   display: block;
 }
@@ -16489,7 +16489,7 @@ textarea.gbase-form-control {
 }
 
 .nav-link {
-  font-size: 16px;
+  font-size: 1.1vw;
   font-weight: 600; /* Semi-bold */
   color: #292929;
   text-decoration: none;
@@ -16896,7 +16896,7 @@ input{
 
 .gbase-form-group {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
 
 .sheet-crop-wrapper {
@@ -16988,4 +16988,8 @@ input{
   height: 450px;
   border-radius: 12px;
   overflow: hidden;
+}
+
+.header-actions{
+  display: flex;
 }

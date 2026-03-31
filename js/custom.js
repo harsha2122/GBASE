@@ -6,85 +6,6 @@ document.querySelectorAll("[popovertarget]").forEach((btn) => {
   }
 });
 
-// MULTI-SELECT DROPDOWN LOGIC
-
-// 1. Global Click Handler for Toggling and Closing
-document.addEventListener('click', function(e) {
-  const btn = e.target.closest('.multi-btn');
-  const dropdown = e.target.closest('.multi-dropdown');
-  const wrap = e.target.closest('.multi-wrap');
-
-  // If clicked on the button
-  if (btn) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    // Close other dropdowns
-    document.querySelectorAll('.multi-wrap.open').forEach(w => {
-      if (w !== wrap) w.classList.remove('open');
-    });
-
-    // Toggle current dropdown
-    if (wrap) {
-      wrap.classList.toggle('open');
-    }
-    return;
-  }
-
-  // If clicked inside the dropdown (inputs, labels, etc.)
-  if (dropdown) {
-    // Do not close the dropdown.
-    // Allow default browser behavior (checkbox toggling).
-    return;
-  }
-
-  // If clicked anywhere else (outside button and dropdown)
-  // Close all open dropdowns
-  document.querySelectorAll('.multi-wrap.open').forEach(w => {
-    w.classList.remove('open');
-  });
-});
-
-// 2. Update Selected Tags Display
-function updateTags() {
-  const selected = [];
-  document.querySelectorAll(".multi-dropdown input:checked").forEach((cb) => {
-    selected.push(cb.value);
-  });
-
-  const productAnchor = document.querySelector(".multi-dropdown.w-100")?.closest(".gbase-form-group");
-  let container = document.getElementById("selected-list");
-
-  if (!container) {
-    container = document.createElement("div");
-    container.id = "selected-list";
-    container.className = "selected-list";
-  }
-
-  if (productAnchor) {
-    productAnchor.insertAdjacentElement("afterend", container);
-  }
-
-  if (container) {
-    container.innerHTML = "";
-    selected.forEach((item) => {
-      container.innerHTML += `<span class="tag">${item}</span>`;
-    });
-  }
-}
-
-// 3. Listen for changes on inputs using delegation
-document.addEventListener('change', function(e) {
-  if (e.target.matches('.multi-dropdown input')) {
-    updateTags();
-  }
-});
-
-// Initialize tags on load
-document.addEventListener('DOMContentLoaded', () => {
-  updateTags();
-});
-
 // ================= MOBILE HEADER LOGIC =================
 document.addEventListener('DOMContentLoaded', () => {
   const mobileBtn = document.querySelector('.gbase-mobile-menu-btn');
@@ -242,4 +163,164 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
   });
+});
+
+// -----------------------------------------------------------------------
+// MULTI-SELECT DROPDOWN HANDLING (shared across pages)
+// -----------------------------------------------------------------------
+function setupMultiSelect() {
+  // Open / close dropdowns
+  document.querySelectorAll('.multi-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var parent = this.parentElement;
+
+      // close others
+      document.querySelectorAll('.multi-wrap.open').forEach(function (wrap) {
+        if (wrap !== parent) wrap.classList.remove('open');
+      });
+
+      // toggle current
+      parent.classList.toggle('open');
+    });
+  });
+
+  // Keep dropdown open when clicking checkbox; allow native toggle
+  document.querySelectorAll('.multi-dropdown input').forEach(function (input) {
+    input.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  });
+
+  // Update selected tags for product types and pre-process
+  function ensureContainer(afterEl, id) {
+    var container = document.getElementById(id);
+    if (!container) {
+      container = document.createElement('div');
+      container.id = id;
+      container.className = 'selected-list';
+    }
+    if (afterEl) {
+      if (container.previousElementSibling !== afterEl) {
+        afterEl.insertAdjacentElement('afterend', container);
+      }
+    }
+    return container;
+  }
+
+  function renderTags(container, values) {
+    if (!container) return;
+    container.innerHTML = '';
+    values.forEach(function (item) {
+      container.innerHTML += '<span class="tag">' + item + '</span>';
+    });
+  }
+
+  function updateProductTags() {
+    var selected = [];
+    var productDropdown = document.querySelector('.multi-dropdown.w-100');
+    var productWrap = productDropdown ? productDropdown.closest('.multi-wrap') : null;
+    if (!productWrap) return;
+    productWrap.querySelectorAll('input[name="product_types[]"]:checked').forEach(function (cb) {
+      selected.push(cb.value);
+    });
+
+    var container = ensureContainer(productWrap, 'selected-list');
+    renderTags(container, selected);
+  }
+
+  function updatePreProcessTags() {
+    var selected = [];
+    var preProcessDropdown = document.querySelector('.multi-dropdown input[name="pre_process[]"]');
+    var preProcessWrap = preProcessDropdown ? preProcessDropdown.closest('.multi-wrap') : null;
+    if (!preProcessWrap) return;
+    preProcessWrap.querySelectorAll('input[name="pre_process[]"]:checked').forEach(function (cb) {
+      selected.push(cb.value);
+    });
+
+    var container = ensureContainer(preProcessWrap, 'preprocess-selected-list');
+    renderTags(container, selected);
+  }
+
+  function updateFreezingTags() {
+    var selected = [];
+    var freezingInput = document.querySelector('.multi-dropdown input[name="freezing_equipment[]"]');
+    var freezingWrap = freezingInput ? freezingInput.closest('.multi-wrap') : null;
+    if (!freezingWrap) return;
+    freezingWrap.querySelectorAll('input[name="freezing_equipment[]"]:checked').forEach(function (cb) {
+      selected.push(cb.value);
+    });
+
+    var container = ensureContainer(freezingWrap, 'freezing-selected-list');
+    renderTags(container, selected);
+  }
+
+  function updateHeatingTags() {
+    var selected = [];
+    var heatingInput = document.querySelector('.multi-dropdown input[name="heating_equipment[]"]');
+    var heatingWrap = heatingInput ? heatingInput.closest('.multi-wrap') : null;
+    if (!heatingWrap) return;
+    heatingWrap.querySelectorAll('input[name="heating_equipment[]"]:checked').forEach(function (cb) {
+      selected.push(cb.value);
+    });
+
+    var container = ensureContainer(heatingWrap, 'heating-selected-list');
+    renderTags(container, selected);
+  }
+
+  function updateSortingTags() {
+    var selected = [];
+    var sortingInput = document.querySelector('.multi-dropdown input[name="equipment_options[]"]');
+    var sortingWrap = sortingInput ? sortingInput.closest('.multi-wrap') : null;
+    if (!sortingWrap) return;
+    sortingWrap.querySelectorAll('input[name="equipment_options[]"]:checked').forEach(function (cb) {
+      selected.push(cb.value);
+    });
+
+    var container = ensureContainer(sortingWrap, 'sorting-selected-list');
+    renderTags(container, selected);
+  }
+
+  document.querySelectorAll('.multi-dropdown input').forEach(function (input) {
+    input.addEventListener('change', function () {
+      if (input.name === 'product_types[]') updateProductTags();
+      if (input.name === 'pre_process[]') updatePreProcessTags();
+      if (input.name === 'freezing_equipment[]') updateFreezingTags();
+      if (input.name === 'heating_equipment[]') updateHeatingTags();
+      if (input.name === 'equipment_options[]') updateSortingTags();
+    });
+  });
+
+  // Initial render on load
+  updateProductTags();
+  updatePreProcessTags();
+  updateFreezingTags();
+  updateHeatingTags();
+  updateSortingTags();
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.multi-wrap')) {
+      document.querySelectorAll('.multi-wrap.open').forEach(function (wrap) {
+        wrap.classList.remove('open');
+      });
+    }
+  });
+
+  // Others checkbox toggles (supports multiple ids)
+  document.querySelectorAll('input[id$="-others-checkbox"], input#others-checkbox').forEach(function (cb) {
+    cb.addEventListener('change', function () {
+      var id = cb.id;
+      var targetId = id === 'others-checkbox' ? 'others-input' : id.replace('-checkbox', '-input');
+      var target = document.getElementById(targetId);
+      if (target) {
+        target.style.display = cb.checked ? 'block' : 'none';
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  setupMultiSelect();
 });

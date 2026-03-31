@@ -37,7 +37,7 @@
 <link href="../css/search.css" rel="stylesheet"/>
 </head>
 <body>
-<a class="float" href="https://api.whatsapp.com/send?phone=919878640088" target="_blank">
+<a class="float" href="https://api.whatsapp.com/send?phone=919315738621" target="_blank">
 <i class="fa-brands fa-whatsapp my-float"></i>
 </a>
 <a class="float1" href="tel:+91 9878640088">
@@ -80,27 +80,29 @@
 <ul class="nav-list mb-0">
 <!-- NEW EQUIPMENT DROPDOWN -->
 <li class="nav-item dropdown">
-<a class="nav-link" href="#">New Equipment</a>
+<a class="nav-link" href="/equipments.html">New Equipment</a>
 <div class="mega-menu">
 <div class="mega-inner">
 <div class="mega-col">
 <h4>Pre-Process</h4>
 <ul>
 <li><a href="/process/cutting.html">Cutting</a></li>
-<li><a href="/process/cutting.html">Dicing</a></li>
+<li><a href="/process/dicing.html">Dicing</a></li>
 <li><a href="/process/slicing.html">Slicing</a></li>
 <li><a href="/process/peeling.html">Peeling</a></li>
-<li><a href="/process/peeling.html">Washing</a></li>
+
+<li><a href="/process/washing.html">Washing</a></li>
 <li><a href="/process/blanching.html">Blanching</a></li>
 <li><a href="/process/blanching.html">Chilling</a></li>
 <li><a href="/process/blanching.html">De-watering</a></li>
+<li><a href="/process/more_machines.html">More Machines</a></li>
 </ul>
 </div>
 <div class="mega-col">
 <h4>Freezing</h4>
 <ul>
 <li><a href="/freezing/freezing.html">IQF</a></li>
-<li><a href="/freezing/freezing.html">Impingement Freezer</a></li>
+<li><a href="/freezing/impingement.html">Impingement Freezer</a></li>
 <li><a href="/freezing/spiral.html">Spiral Freezer</a></li>
 <li><a href="/freezing/spiral.html">Plate Contact Freezer</a></li>
 <li><a href="/freezing/spiral.html">Carton Box Freezer</a></li>
@@ -122,25 +124,24 @@
 <h4>Round Fruit Sorting</h4>
 <ul>
 <li><a href="/sorting/sorting.html">Sorting Machines</a></li>
-<li><a href="/sorting.html">Conveyors</a></li>
-<li><a href="/sorting.html">Others</a></li>
+<li><a href="/sorting/sorting.html">Conveyors</a></li>
+<li><a href="/sorting/sorting.html">Others</a></li>
 </ul>
 </div>
 </div>
 </div>
 </li>
 <li class="nav-item dropdown">
-<a class="nav-link" href="#">Used Equipment</a>
+<a class="nav-link" href="/process/used-equipments.html">Used Equipment</a>
 <div class="mega-menu gbase-mega-menu-tabbed">
 <div class="gbase-tab-container">
 <!-- Sidebar -->
 <div class="gbase-tab-sidebar">
 <ul class="gbase-mega-nav">
-<li><a class="nav-link active" data-target="tab-preprocess" href="#">IQF Freezers</a></li>
-<li><a class="nav-link" data-target="tab-freezing" href="#">Sorting Lines</a></li>
-<li><a class="nav-link" data-target="tab-heating" href="/process/used-equipments.html">Others</a>
-</li>
-<!-- <li><a href="#" class="nav-link" data-target="tab-sorting">Round Fruit Sorting</a></li> -->
+<li><a class="nav-link active" data-target="tab-preprocess" href="/process/used-equipments.html">IQF Freezers</a></li>
+<li><a class="nav-link" data-target="tab-freezing" href="/sorting/sorting.html">Sorting Lines</a></li>
+<li><a class="nav-link" data-target="tab-cutting-dicing" href="javascript:void(0)">Cutting & Dicing</a></li>
+<li><a class="nav-link" data-target="tab-heating" href="/equipments.html">Others</a></li>
 </ul>
 <div style="padding: 24px;">
 <a href="/equipments.html" style="font-weight: 700; color: #0072ff; text-decoration: none; font-size: 14px;">All Equipment <i class="fa fa-arrow-right" style="margin-left: 6px;"></i></a>
@@ -159,27 +160,27 @@
 </a>
 </div>
 <!-- <div class="col-4 mb-3">
-                                  <a href="/pre-process.html" class="gbase-menu-product">
+                                  <a href="/process/cutting.html" class="gbase-menu-product">
                                       <img src="images/product/2.png" alt="Washing">
                                       <h6>Washing</h6>
                                       <p>Efficient washing and sanitation systems.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
-                                  <a href="/pre-process.html" class="gbase-menu-product">
+                                  <a href="/process/cutting.html" class="gbase-menu-product">
                                       <img src="images/product/3.png" alt="Peeling">
                                       <h6>Peeling</h6>
                                       <p>Minimize waste with advanced peeling.</p>
                                   </a>
                               </div> -->
 </div>
-<a class="theme-btn style-outline btn-sm mt-3" href="/pre-process.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
+<a class="theme-btn style-outline btn-sm mt-3" href="/process/used-equipments.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
 </div>
 <!-- Freezing Content -->
 <div class="gbase-mega-tab" id="tab-freezing">
 <div class="row">
 <div class="col-6 mb-3">
-<a class="gbase-menu-product" href="/sorting.html">
+<a class="gbase-menu-product" href="/sorting/sorting.html">
 <img alt="Sorting Machines" src="/images/product/sor.jpeg"/>
 <h6>Sorting Machines</h6>
 <p>Advanced optical sorting.</p>
@@ -200,73 +201,94 @@
                                   </a>
                               </div> -->
 </div>
-<a class="theme-btn style-outline btn-sm mt-3" href="/freezing.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
+<a class="theme-btn style-outline btn-sm mt-3" href="/sorting/sorting.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
 </div>
-<!-- Heating Content -->
+<!-- Cutting & Dicing Content -->
+<div class="gbase-mega-tab" id="tab-cutting-dicing">
+<div class="row">
+<div class="col-6 mb-3">
+<a class="gbase-menu-product" href="/process/cutting.html">
+<img alt="Cutting" src="/images/product/dicing1.png" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover;"/>
+<h6>Cutting</h6>
+<p>Precision cutting solutions.</p>
+</a>
+<a class="theme-btn style-outline btn-sm mt-2" href="/process/cutting.html" style="padding: 6px 18px; font-size: 13px;">View More</a>
+</div>
+<div class="col-6 mb-3">
+<a class="gbase-menu-product" href="/process/dicing.html">
+<img alt="Dicing" src="/images/product/dicing2.png" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover;"/>
+<h6>Dicing</h6>
+<p>Uniform dicing for consistent quality.</p>
+</a>
+<a class="theme-btn style-outline btn-sm mt-2" href="/process/dicing.html" style="padding: 6px 18px; font-size: 13px;">View More</a>
+</div>
+</div>
+</div>
+
 <div class="gbase-mega-tab" id="tab-heating">
 <div class="row">
 <!-- <div class="col-6 mb-3">
-                                  <a href="/heating.html" class="gbase-menu-product">
+                                  <a href="/heating/oven.html" class="gbase-menu-product">
                                       <img src="/images/product/spiraaloven.png" alt="Spiral Ovens">
                                       <h6>OctoFrost HiTec Spiral Oven</h6>
                                       <p>Perfect for slow-cooked quality.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
-                                  <a href="/heating.html" class="gbase-menu-product">
+                                  <a href="/heating/oven.html" class="gbase-menu-product">
                                       <img src="images/product/4.png" alt="Linear Ovens">
                                       <h6>Linear Ovens</h6>
                                       <p>Flexible and uniform heating.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
-                                  <a href="/heating.html" class="gbase-menu-product">
+                                  <a href="/heating/oven.html" class="gbase-menu-product">
                                       <img src="images/product/2.png" alt="Contact Grills">
                                       <h6>Contact Grills</h6>
                                       <p>Authentic grill marks and flavor.</p>
                                   </a>
                               </div> -->
 </div>
-<a class="theme-btn style-outline btn-sm mt-3" href="/heating.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
+<a class="theme-btn style-outline btn-sm mt-3" href="/heating/oven.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
 </div>
 <!-- Round Fruit Sorting Content -->
 <div class="gbase-mega-tab" id="tab-sorting">
 <div class="row">
 <div class="col-6 mb-3">
-<a class="gbase-menu-product" href="/sorting.html">
+<a class="gbase-menu-product" href="/sorting/sorting.html">
 <img alt="Sorting Machines" src="/images/product/sor.jpeg"/>
 <h6>Sorting Machines</h6>
 <p>Advanced optical sorting.</p>
 </a>
 </div>
 <!-- <div class="col-4 mb-3">
-                                  <a href="/sorting.html" class="gbase-menu-product">
+                                  <a href="/sorting/sorting.html" class="gbase-menu-product">
                                       <img src="images/product/1.png" alt="Conveyors">
                                       <h6>Conveyors</h6>
                                       <p>Smart handling solutions.</p>
                                   </a>
                               </div>
                               <div class="col-4 mb-3">
-                                  <a href="/sorting.html" class="gbase-menu-product">
+                                  <a href="/sorting/sorting.html" class="gbase-menu-product">
                                       <img src="images/product/sidebar-image.png" alt="Others">
                                       <h6>Others</h6>
                                       <p>Additional sorting accessories.</p>
                                   </a>
                               </div> -->
 </div>
-<a class="theme-btn style-outline btn-sm mt-3" href="/sorting.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
+<a class="theme-btn style-outline btn-sm mt-3" href="/sorting/sorting.html" style="padding: 8px 24px; font-size: 14px;">View More</a>
 </div>
 </div>
 </div>
 </div>
 </li>
 <li class="nav-item dropdown">
-<a class="nav-link" href="#">Service</a>
+<a class="nav-link" href="/consulting.html">Service</a>
 <div class="sub-menu">
 <ul>
-<li><a href="/service.html">Online Support / Troubleshooting</a></li>
-<li><a href="/service.html">Onsite Support (Site Visit)</a></li>
-<li><a href="/service.html">Equipment Audits</a></li>
+<li><a href="/service/online-support.html">Online Support / Troubleshooting</a></li>
+<li><a href="/service/onsite-support.html">Onsite Support (Site Visit)</a></li>
+<li><a href="/service/equipment-audits.html">Equipment Audits</a></li>
 </ul>
 </div>
 </li>
@@ -278,21 +300,23 @@
 <div class="mega-col">
 <h4>Pre-Process</h4>
 <ul>
-<li><a href="/pre-process.html">Cutting</a></li>
-<li><a href="/pre-process.html">Dicing</a></li>
+<li><a href="/process/cutting.html">Cutting</a></li>
+<li><a href="/process/dicing.html">Dicing</a></li>
 <li><a href="/process/slicing.html">Slicing</a></li>
-<li><a href="/pre-process.html">Washing</a></li>
-<li><a href="/pre-process.html">Blanching</a></li>
-<li><a href="/pre-process.html">Chilling</a></li>
-<li><a href="/pre-process.html">De-watering</a></li>
-<li><a href="/pre-process.html">Peeling</a></li>
+<li><a href="/process/washing.html">Washing</a></li>
+<li><a href="/process/blanching.html">Blanching</a></li>
+<li><a href="/process/blanching.html">Chilling</a></li>
+<li><a href="/process/blanching.html">De-watering</a></li>
+<li><a href="/process/more_machines.html">More Machines</a></li>
+<li><a href="/process/peeling.html">Peeling</a></li>
+
 </ul>
 </div>
 <div class="mega-col">
 <h4>Freezing</h4>
 <ul>
-<li><a href="/freezing.html">IQF</a></li>
-<li><a href="/freezing.html">Impingement Freezer</a></li>
+<li><a href="/freezing/freezing.html">IQF</a></li>
+<li><a href="/freezing/impingement.html">Impingement Freezer</a></li>
 <li><a href="/equipments.html">Spiral Freezer</a></li>
 <li><a href="/equipments.html">Plate Freezer</a></li>
 <li><a href="/equipments.html">Carton Box Freezer</a></li>
@@ -301,19 +325,19 @@
 <div class="mega-col">
 <h4>Heating</h4>
 <ul>
-<li><a href="/heating.html">Contact Grills</a></li>
-<li><a href="/heating.html">Oil Fryer</a></li>
-<li><a href="/heating.html">Spiral Ovens</a></li>
-<li><a href="/heating.html">Linear Ovens</a></li>
-<li><a href="/heating.html">Oil Filtration</a></li>
+<li><a href="/heating/grill.html">Contact Grills</a></li>
+<li><a href="/heating/grill.html">Oil Fryer</a></li>
+<li><a href="/heating/oven.html">Spiral Ovens</a></li>
+<li><a href="/heating/oven.html">Linear Ovens</a></li>
+<li><a href="/heating/filteration.html">Oil Filtration</a></li>
 </ul>
 </div>
 <div class="mega-col">
 <h4>Round Fruit Sorting</h4>
 <ul>
-<li><a href="/sorting.html">Sorting Machines</a></li>
-<li><a href="/sorting.html">Conveyors</a></li>
-<li><a href="/sorting.html">Others</a></li>
+<li><a href="/sorting/sorting.html">Sorting Machines</a></li>
+<li><a href="/sorting/sorting.html">Conveyors</a></li>
+<li><a href="/sorting/sorting.html">Others</a></li>
 </ul>
 </div>
 </div>
@@ -321,14 +345,10 @@
 </li>
 <li class="nav-item"><a class="nav-link" href="#">Knowledge Centre</a></li>
 </ul>
-</nav> <!-- CONTACT -->
-<a class="theme-btn" href="contact.html" style="padding: 10px 15px; font-size: 18px;">
-        Contact <i class="fa-regular fa-arrow-right" style="margin-left: 6px;"></i>
-</a>
-<!-- SEARCH -->
-<button aria-label="Search" class="gbase-search-toggle" id="gbase-search-btn">
-<i class="fa-solid fa-magnifying-glass"></i>
-</button>
+</nav> <div class="header-actions">
+<a class="theme-btn" href="/contact.html" style="padding: 10px 15px; font-size: 18px;">Contact <i class="fa-regular fa-arrow-right" style="margin-left: 6px;"></i></a>
+<button id="gbase-search-btn" class="gbase-search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
 </div>
 </header>
 <!-- ===================== MOBILE HEADER ===================== -->
@@ -367,10 +387,11 @@
 <li>
 <span>Pre-Process</span>
 <ul>
-<li><a href="/pre-process.html">Cutting</a></li>
-<li><a href="/pre-process.html">Washing</a></li>
-<li><a href="/pre-process.html">Peeling</a></li>
-<li><a href="/pre-process.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a></li>
+<li><a href="/process/cutting.html">Cutting</a></li>
+<li><a href="/process/washing.html">Washing</a></li>
+<li><a href="/process/peeling.html">Peeling</a></li>
+
+<li><a href="/process/cutting.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a></li>
 </ul>
 </li>
 <!-- Freezing -->
@@ -380,7 +401,7 @@
 <li><a href="/product/spiral-freezer.html">Spiral Freezer</a></li>
 <li><a href="/product/plate-freezer.html">Plate Freezer</a></li>
 <li><a href="/product/carton-box-freezer.html">Carton Box Freezer</a></li>
-<li><a href="/freezing.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a>
+<li><a href="/freezing/freezing.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a>
 </li>
 </ul>
 </li>
@@ -388,10 +409,10 @@
 <li>
 <span>Heating</span>
 <ul>
-<li><a href="/heating.html">Spiral Ovens</a></li>
-<li><a href="/heating.html">Linear Ovens</a></li>
-<li><a href="/heating.html">Contact Grills</a></li>
-<li><a href="/heating.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a>
+<li><a href="/heating/oven.html">Spiral Ovens</a></li>
+<li><a href="/heating/oven.html">Linear Ovens</a></li>
+<li><a href="/heating/grill.html">Contact Grills</a></li>
+<li><a href="/heating/oven.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a>
 </li>
 </ul>
 </li>
@@ -399,16 +420,16 @@
 <li>
 <span>Sorting</span>
 <ul>
-<li><a href="/sorting.html">Sorting Machines</a></li>
-<li><a href="/sorting.html">Conveyors</a></li>
-<li><a href="/sorting.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a>
+<li><a href="/sorting/sorting.html">Sorting Machines</a></li>
+<li><a href="/sorting/sorting.html">Conveyors</a></li>
+<li><a href="/sorting/sorting.html" style="font-weight: 700;">View More <i class="fa fa-arrow-right"></i></a>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#">Service</a></li>
-<li><a href="contact.html">Contact</a></li>
+<li><a href="/consulting.html">Service</a></li>
+<li><a href="/contact.html">Contact</a></li>
 </ul>
 </div>
 </div>
@@ -466,12 +487,12 @@
 <div class="col-md-12">
 <div class="breadcrumb-wrapper">
 <div class="page-heading">
-<h3 class="page-title">Cutting / Slicing / Dicing</h3>
+<h3 class="page-title">Slicing</h3>
 </div>
 <div class="breadcrumb-list">
 <ul>
 <li><a href="/">Home</a></li>
-<li class="active"><a href="/process/slicing.html">Cutting/Slicing/Dicing</a></li>
+<li class="active"><a href="/process/slicing.html">Slicing</a></li>
 </ul>
 </div>
 </div>
@@ -613,14 +634,8 @@
 <!-- Country -->
 <div class="col-md-6">
 <div class="gbase-form-group">
-<select class="gbase-form-control" name="country" required="" style="border: 2px solid;">
-<option selected="" value="India">India</option>
-<option value="USA">Australia</option>
-<option value="UK">Bangladesh</option>
-<option value="UAE">Indonesia</option>
-<option value="Australia">New Zealand</option>
-<option value="Australia">Sri Lanka</option>
-</select>
+<select class="gbase-form-control country-select" name="country" required="" style="border: 2px solid;"><option disabled="" selected="" value="">Country *</option><option value="Australia">Australia</option><option value="Bangladesh">Bangladesh</option><option value="India">India</option><option value="Indonesia">Indonesia</option><option value="New Zealand">New Zealand</option><option value="Sri Lanka">Sri Lanka</option><option value="Others">Others</option></select>
+<input class="gbase-form-control country-other-input" name="country_other" placeholder="Please specify country" style="display:none; margin-top:10px;" type="text"/>
 <label>Country <span style="color:red">*</span></label>
 </div>
 </div>
@@ -686,6 +701,7 @@
 <label><input name="product_types[]" type="checkbox" value="Ice Cream"/> Ice Cream</label>
 </div>
 </div>
+<div class="selected-list" id="selected-list"></div>
 </div>
 </div>
 <!-- Pre-Process -->
@@ -693,7 +709,7 @@
 <div class="col-lg-3 col-md-6 mb-3">
 <label style="display:block; margin-bottom:6px;">Pre-Process</label>
 <div class="multi-wrap">
-<button class="multi-btn">Options ▾</button>
+<button class="multi-btn" type="button">Options ▾</button>
 <div class="multi-dropdown">
 <label><input name="pre_process[]" type="checkbox" value="Cutting"/> Cutting</label>
 <label><input name="pre_process[]" type="checkbox" value="Dicing"/> Dicing</label>
@@ -706,10 +722,9 @@
 <label><input id="others-checkbox" name="pre_process[]" type="checkbox" value="Others"/> Others</label>
 </div>
 </div>
+<div class="selected-list" id="preprocess-selected-list"></div>
 </div>
 </div>
-<!-- SELECTED VALUES DISPLAY -->
-<div class="selected-list" id="selected-list"></div>
 <div class="col-12" id="others-input" style="display:none;">
 <div class="gbase-form-group">
 <input class="gbase-form-control" name="others_specify" type="text">
@@ -750,122 +765,300 @@
 <!-- Brand Slider Area Start -->
 <div class="brand-slider-area style-1">
 <div class="container">
+<h2 style="margin-bottom: 20px; text-align: center;">Our Clientele</h2>
 <div class="client-logo-wrapper">
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 1" src="../images/brand-logo/1.png">
-</img></div>
+<div class="client-logo-box">
+<img alt="Client Logo 1" src="/images/clientlogos/1.png"/>
 </div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 2" src="../images/brand-logo/2.png">
-</img></div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 3" src="../images/brand-logo/3.png">
-</img></div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 4" src="../images/brand-logo/4.png">
-</img></div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 5" src="../images/brand-logo/5.png">
-</img></div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/6.png">
-</img></div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/7.png">
-</img></div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/8.png">
-</img></div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/9.png"/>
 </div>
 </div>
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/10.png"/>
+<div class="client-logo-box">
+<img alt="Client Logo 2" src="/images/clientlogos/2.png"/>
 </div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/11.png"/>
 </div>
 </div>
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/12.png"/>
+<div class="client-logo-box">
+<img alt="Client Logo 3" src="/images/clientlogos/3.png"/>
 </div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/13.png"/>
 </div>
 </div>
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/14.png"/>
+<div class="client-logo-box">
+<img alt="Client Logo 4" src="/images/clientlogos/4.png"/>
 </div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/15.png"/>
 </div>
 </div>
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/16.png"/>
+<div class="client-logo-box">
+<img alt="Client Logo 5" src="/images/clientlogos/5.png"/>
 </div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/17.png"/>
 </div>
 </div>
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/18.png"/>
+<div class="client-logo-box">
+<img alt="Client Logo 6" src="/images/clientlogos/6.png"/>
 </div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/19.png"/>
 </div>
 </div>
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/20.png"/>
+<div class="client-logo-box">
+<img alt="Client Logo 7" src="/images/clientlogos/7.png"/>
 </div>
-</div>
-<div class="client-logo-item">
-<div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/21.png"/>
 </div>
 </div>
 <div class="client-logo-item">
 <div class="client-logo">
-<img alt="Brand Logo 6" src="../images/brand-logo/22.png"/>
+<div class="client-logo-box">
+<img alt="Client Logo 8" src="/images/clientlogos/8.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 9" src="/images/clientlogos/9.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 10" src="/images/clientlogos/10.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 11" src="/images/clientlogos/11.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 12" src="/images/clientlogos/12.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 13" src="/images/clientlogos/13.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 14" src="/images/clientlogos/14.1.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 15" src="/images/clientlogos/14.2.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 16" src="/images/clientlogos/15.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 17" src="/images/clientlogos/16.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 18" src="/images/clientlogos/17.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 19" src="/images/clientlogos/18.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 20" src="/images/clientlogos/19.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 21" src="/images/clientlogos/20.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 22" src="/images/clientlogos/21.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 23" src="/images/clientlogos/22.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 24" src="/images/clientlogos/23.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 25" src="/images/clientlogos/24.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 26" src="/images/clientlogos/25.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 27" src="/images/clientlogos/26.1.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 28" src="/images/clientlogos/26.2.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 29" src="/images/clientlogos/27.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 30" src="/images/clientlogos/28.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 31" src="/images/clientlogos/29.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 32" src="/images/clientlogos/30.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 33" src="/images/clientlogos/31.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 34" src="/images/clientlogos/32.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 35" src="/images/clientlogos/33.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 36" src="/images/clientlogos/34.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 37" src="/images/clientlogos/35.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 38" src="/images/clientlogos/36.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 39" src="/images/clientlogos/37.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 40" src="/images/clientlogos/38.png"/>
+</div>
+</div>
+</div>
+<div class="client-logo-item">
+<div class="client-logo">
+<div class="client-logo-box">
+<img alt="Client Logo 41" src="/images/clientlogos/39.png"/>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 <!-- Brand Slider Area End -->
-<!-- Header Search Bar Modal Start -->
+
 <!-- Search Bar Modal (Unchanged structure, links -> void) -->
 <div class="search-form-wrapper">
 <div class="search-form-inner">
@@ -963,20 +1156,20 @@
 <div class="footer-widget widget_nav_menu">
 <h2 class="footer-widget-title">Quick Links</h2>
 <ul>
-<li><a href="javascript:void(0)">New Equipment</a></li>
-<li><a href="javascript:void(0)">Used Equipment</a></li>
-<li><a href="javascript:void(0)">Spares</a></li>
+<li><a href="/equipments.html">New Equipment</a></li>
+<li><a href="/process/used-equipments.html">Used Equipment</a></li>
+<li><a href="/spare_parts.html">Spares</a></li>
 <li>
-<a href="javascript:void(0)">Services</a>
+<a href="/consulting.html">Services</a>
 <ul class="sub-menu">
-<li><a href="javascript:void(0)">Online Support / Troubleshooting</a></li>
-<li><a href="javascript:void(0)">Onsite Support / Site Visit</a></li>
-<li><a href="javascript:void(0)">Equipment Audits</a></li>
+<li><a href="/service/online-support.html">Online Support / Troubleshooting</a></li>
+<li><a href="/service/onsite-support.html">Onsite Support / Site Visit</a></li>
+<li><a href="/service/equipment-audits.html">Equipment Audits</a></li>
 </ul>
 </li>
-<li><a href="javascript:void(0)">Consulting</a></li>
-<li><a href="javascript:void(0)">Knowledge Transfer</a></li>
-<li><a href="javascript:void(0)">Contact Us</a></li>
+<li><a href="/consulting.html">Consulting</a></li>
+<li><a href="/knowledge-transfer.html">Knowledge Transfer</a></li>
+<li><a href="/contact.html">Contact Us</a></li>
 </ul>
 </div>
 </div>
@@ -985,13 +1178,13 @@
 <div class="footer-widget widget_nav_menu">
 <h2 class="footer-widget-title">Service &amp; Support</h2>
 <ul>
-<li><a href="javascript:void(0)">Project Consulting</a></li>
-<li><a href="javascript:void(0)">Design and Implementation</a></li>
-<li><a href="javascript:void(0)">Supply</a></li>
-<li><a href="javascript:void(0)">Installation</a></li>
-<li><a href="javascript:void(0)">Commissioning</a></li>
-<li><a href="javascript:void(0)">Technical services</a></li>
-<li><a href="javascript:void(0)">Training and performance audits</a></li>
+<li><a href="/consulting.html">Project Consulting</a></li>
+<li><a href="/consulting.html">Design and Implementation</a></li>
+<li><a href="/consulting.html">Supply</a></li>
+<li><a href="/consulting.html">Installation</a></li>
+<li><a href="/consulting.html">Commissioning</a></li>
+<li><a href="/consulting.html">Technical services</a></li>
+<li><a href="/consulting.html">Training and performance audits</a></li>
 </ul>
 </div>
 </div>
@@ -1038,7 +1231,6 @@
 <div class="footer-bottom-menu">
 <ul>
 <li><a href="javascript:void(0)">Contact</a></li>
-<li><a href="javascript:void(0)">Privacy Policy</a></li>
 <li>
 <a href="javascript:void(0)">Terms &amp; Conditions</a>
 </li>
@@ -1054,77 +1246,8 @@
 </footer>
 <!-- Footer End -->
 <!--- End Footer !-->
-<script>
-    // OPEN / CLOSE DROPDOWN
-    document.querySelectorAll(".multi-btn").forEach((btn) => {
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        let parent = this.parentElement;
 
-        // close others
-        document.querySelectorAll(".multi-wrap.open").forEach((wrap) => {
-          if (wrap !== parent) wrap.classList.remove("open");
-        });
 
-        // toggle current
-        parent.classList.toggle("open");
-      });
-    });
-
-    // HANDLE CHECKBOX WITHOUT SCROLLING / CLOSING DROPDOWN
-    document.querySelectorAll(".multi-dropdown input").forEach((input) => {
-      input.addEventListener("mousedown", function (e) {
-        e.preventDefault(); // prevent scroll/focus
-        this.checked = !this.checked;
-        this.dispatchEvent(new Event("change"));
-      });
-
-      input.addEventListener("click", function (e) {
-        e.stopPropagation(); // prevent dropdown close
-      });
-    });
-
-    // UPDATE SELECTED TAGS
-    function updateTags() {
-      let selected = [];
-
-      document
-        .querySelectorAll(".multi-dropdown input:checked")
-        .forEach((cb) => {
-          selected.push(cb.value);
-        });
-
-      let container = document.getElementById("selected-list");
-      container.innerHTML = "";
-
-      selected.forEach((item) => {
-        container.innerHTML += `<span class="tag">${item}</span>`;
-      });
-    }
-
-    document.querySelectorAll(".multi-dropdown input").forEach((input) => {
-      input.addEventListener("change", updateTags);
-    });
-
-    // CLOSE DROPDOWNS ON OUTSIDE CLICK — BUT NOT INSIDE
-    document.addEventListener("click", function (e) {
-      if (!e.target.closest(".multi-wrap")) {
-        document.querySelectorAll(".multi-wrap.open").forEach((wrap) => {
-          wrap.classList.remove("open");
-        });
-      }
-    });
-  </script>
-<script>
-    document.getElementById("others-checkbox").addEventListener("change", function () {
-      const othersField = document.getElementById("others-input");
-      if (this.checked) {
-        othersField.style.display = "block";   // Show field
-      } else {
-        othersField.style.display = "none";    // Hide field
-      }
-    });
-  </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.nice-select.min.js"></script>
@@ -1138,7 +1261,7 @@
 <script src="js/wow.min.js"></script>
 <script src="js/tilt.jquery.min.js"></script>
 <script src="js/custom-slider.js"></script>
-<script src="/js/custom.js"></script>
+<script src="/js/custom.js?v=4"></script>
 <script src="js/translation.js"></script>
 <!-- Search Overlay -->
 <div class="gbase-search-overlay" id="gbase-search-overlay">
@@ -1156,3 +1279,6 @@
 <script src="../js/page-search.js"></script>
 </body>
 </html>
+
+
+
