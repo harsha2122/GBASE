@@ -115,47 +115,81 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // -----------------------------------------------------------------------
-// Toast notification — shown after form submission
+// Toast notification — shown after form submission (zero Bootstrap dependency)
 // -----------------------------------------------------------------------
 function showFormToast(message, isSuccess) {
   var container = document.getElementById('gbase-toast-container');
   if (!container) {
     container = document.createElement('div');
     container.id = 'gbase-toast-container';
-    container.style.cssText = 'position:fixed;top:24px;right:24px;z-index:9999;min-width:300px;max-width:420px;';
+    container.style.cssText = [
+      'position:fixed;',
+      'top:24px;',
+      'right:24px;',
+      'z-index:99999;',
+      'min-width:300px;',
+      'max-width:420px;',
+      'pointer-events:none;'
+    ].join('');
     document.body.appendChild(container);
   }
 
-  var toastEl = document.createElement('div');
-  toastEl.className = 'toast align-items-center border-0';
-  toastEl.setAttribute('role', 'alert');
-  toastEl.setAttribute('aria-live', 'assertive');
-  toastEl.setAttribute('aria-atomic', 'true');
-  toastEl.style.cssText = [
-    'margin-bottom:10px;',
-    'box-shadow:0 4px 16px rgba(0,0,0,0.18);',
-    'border-radius:8px;',
-    isSuccess ? 'background:#d4edda;color:#155724;' : 'background:#f8d7da;color:#721c24;'
-  ].join('');
+  var bg    = isSuccess ? '#d4edda' : '#f8d7da';
+  var color = isSuccess ? '#155724' : '#721c24';
+  var border= isSuccess ? '#b1dfbb' : '#f1aeb5';
 
   var icon = isSuccess
-    ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;margin-right:10px;"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>'
-    : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;margin-right:10px;"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>';
+    ? '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>'
+    : '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>';
 
-  toastEl.innerHTML =
-    '<div class="d-flex align-items-center" style="padding:14px 16px;">' +
-      icon +
-      '<div style="font-size:14px;font-weight:500;line-height:1.4;">' + message + '</div>' +
-      '<button type="button" style="margin-left:auto;background:none;border:none;cursor:pointer;opacity:0.6;font-size:20px;line-height:1;padding:0 0 0 12px;" onclick="this.closest(\'.toast\').remove();" aria-label="Close">&times;</button>' +
-    '</div>';
+  var toastEl = document.createElement('div');
+  toastEl.setAttribute('role', 'alert');
+  toastEl.style.cssText = [
+    'display:flex;',
+    'align-items:flex-start;',
+    'gap:12px;',
+    'padding:14px 16px;',
+    'margin-bottom:10px;',
+    'border-radius:8px;',
+    'border:1px solid ' + border + ';',
+    'background:' + bg + ';',
+    'color:' + color + ';',
+    'font-size:14px;',
+    'font-weight:500;',
+    'line-height:1.5;',
+    'box-shadow:0 4px 20px rgba(0,0,0,0.15);',
+    'pointer-events:auto;',
+    'opacity:0;',
+    'transform:translateX(30px);',
+    'transition:opacity 0.3s ease,transform 0.3s ease;'
+  ].join('');
 
+  var closeBtn = document.createElement('button');
+  closeBtn.setAttribute('aria-label', 'Close');
+  closeBtn.style.cssText = 'margin-left:auto;background:none;border:none;cursor:pointer;opacity:0.55;font-size:20px;line-height:1;padding:0;color:inherit;flex-shrink:0;';
+  closeBtn.innerHTML = '&times;';
+
+  toastEl.innerHTML = icon + '<span style="flex:1;">' + message + '</span>';
+  toastEl.appendChild(closeBtn);
   container.appendChild(toastEl);
 
-  // Auto-remove after 6 s
-  var removeTimer = setTimeout(function () { toastEl.remove(); }, 6000);
-  toastEl.querySelector('button').addEventListener('click', function () {
-    clearTimeout(removeTimer);
+  // Animate in
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      toastEl.style.opacity = '1';
+      toastEl.style.transform = 'translateX(0)';
+    });
   });
+
+  function dismiss() {
+    clearTimeout(removeTimer);
+    toastEl.style.opacity = '0';
+    toastEl.style.transform = 'translateX(30px)';
+    setTimeout(function () { toastEl.remove(); }, 320);
+  }
+
+  var removeTimer = setTimeout(dismiss, 6000);
+  closeBtn.addEventListener('click', dismiss);
 }
 
 // -----------------------------------------------------------------------
