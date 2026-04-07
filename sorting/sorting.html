@@ -305,7 +305,7 @@
 </div>
 </div>
 </li>
-<li class="nav-item dropdown">
+<li class="nav-item dropdown dropdown-sub">
 <a class="nav-link" href="/consulting.html">Service</a>
 <div class="sub-menu">
 <ul>
@@ -365,7 +365,15 @@
 </div>
 </div>
 </li>
-<li class="nav-item"><a class="nav-link" href="#">Knowledge Centre</a></li>
+<li class="nav-item dropdown dropdown-sub">
+            <a href="#" class="nav-link">Knowledge Centre</a>
+  <div class="sub-menu">
+    <ul>
+      <li><a href="/knowledge-videos.html">Videos</a></li>
+      <li><a href="/knowledge-articles.html">Articles</a></li>
+    </ul>
+  </div>
+</li>
 </ul>
 </nav> <div class="header-actions">
 <a class="theme-btn" href="/contact.html" style="padding: 10px 15px; font-size: 18px;">Contact <i class="fa-regular fa-arrow-right" style="margin-left: 6px;"></i></a>
@@ -564,54 +572,6 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="gbase-product-gallery" style="padding:60px 0; background:#f8f8f8;">
-<div class="container">
-<div class="row" id="sorting-gallery-grid"></div>
-<script>
-        const sortingGalleryImages = [
-          // "../images/sorting1/1.jpeg",
-          // "../images/sorting1/2.jpeg",
-          // "../images/sorting1/3.jpeg",
-          // "../images/sorting1/4.jpeg",
-          // "../images/sorting1/5.jpeg",
-          // "../images/sorting1/6.jpeg",
-          // "../images/sorting1/8.jpeg",
-          // "../images/sorting1/9.jpeg",
-          // "../images/sorting1/10.jpeg",
-          // "../images/sorting1/11.jpeg",
-          // "../images/sorting1/12.jpeg",
-          // "../images/sorting1/13.jpeg",
-          // "../images/sorting1/14.jpeg",
-          // "../images/sorting1/15.jpeg",
-          // "../images/sorting1/16.jpeg",
-          "../images/sorting1/17.jpeg",
-          "../images/sorting1/18.jpeg",
-          "../images/sorting1/19.jpeg",
-          "../images/sorting1/sor.jpeg",
-          "../images/sorting2/1.jpeg",
-          "../images/sorting2/2.jpeg",
-          "../images/sorting2/3.jpeg",
-          "../images/sorting2/4.jpeg",
-          "../images/sorting2/5.jpeg",
-          "../images/sorting2/6.jpeg",
-          "../images/sorting2/7.jpeg",
-          "../images/sorting1/20.jpeg",
-        ];
-
-        const sortingGalleryGrid = document.getElementById("sorting-gallery-grid");
-        sortingGalleryImages.forEach((imagePath, index) => {
-          sortingGalleryGrid.insertAdjacentHTML(
-            "beforeend",
-            `<div class="col-lg-4 col-md-6 col-12 mb-4">
-              <div class="sorting-gallery-item">
-                <img src="${imagePath}" alt="Sorting image ${index + 1}" class="sorting-gallery-image" loading="lazy">
-              </div>
-            </div>`
-          );
-        });
-      </script>
 </div>
 </div>
 <!-- Contact Form Area Start -->
@@ -1180,7 +1140,7 @@
 </ul>
 </li>
 <li><a href="/consulting.html">Consulting</a></li>
-<li><a href="/knowledge-transfer.html">Knowledge Transfer</a></li>
+<li><a href="/knowledge-videos.html">Knowledge Transfer</a></li>
 <li><a href="/contact.html">Contact Us</a></li>
 </ul>
 </div>
@@ -1291,6 +1251,12 @@
 <script src="../js/page-search.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

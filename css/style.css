@@ -12084,7 +12084,7 @@ ul.children {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .feature-area.style-1 {
-    padding: 120px 0;
+    padding: 10px 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -15401,7 +15401,6 @@ ul.children {
     z-index: 2;
     display: flex;
     color: #fff;
-    padding: 20px 0%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -15409,7 +15408,7 @@ ul.children {
 
 .gbase-hero-content .desc {
   font-size: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #f0f0f0;
 }
 
@@ -16488,6 +16487,10 @@ textarea.gbase-form-control {
   position: static;            /* 🔴 Also static – so it doesn’t become anchor */
 }
 
+.dropdown-sub {
+  position: relative;          /* Anchor for small dropdowns */
+}
+
 .nav-link {
   font-size: 1.1vw;
   font-weight: 600; /* Semi-bold */
@@ -16688,8 +16691,9 @@ textarea.gbase-form-control {
 .sub-menu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
+  left: 0;
+  margin-top: 6px;
+  transform: translateY(0);
   background: #fff;
   border: 1px solid #eee;
   box-shadow: 0 10px 25px rgba(0,0,0,.08);
@@ -16704,7 +16708,7 @@ textarea.gbase-form-control {
 .dropdown:hover .sub-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 /* Items */
