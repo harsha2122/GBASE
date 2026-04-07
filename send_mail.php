@@ -114,7 +114,7 @@ $body = implode("\n", $lines);
 // -----------------------------------------------------------------------
 // Send email via PHP mail()
 // -----------------------------------------------------------------------
-$to      = 'gbasetechnologies.info@gmail.com';
+$to      = 'tsingh2214@gmail.com';
 $subject = "GBASE Enquiry from {$company} ({$final_country})";
 
 // Use a domain address in From so Hostinger's MTA accepts it.
@@ -137,6 +137,6 @@ if (mail($to, $subject, $body, $headers)) {
     http_response_code(500);
     echo json_encode([
         'success' => false,
-        'message' => 'Sorry, there was a problem sending your message. Please try again or contact us directly at gbasetechnologies.info@gmail.com'
+        'message' => 'Sorry, there was a problem sending your message. Please try again or contact us directly.'
     ]);
 }

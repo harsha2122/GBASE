@@ -115,6 +115,50 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // -----------------------------------------------------------------------
+// Toast notification — shown after form submission
+// -----------------------------------------------------------------------
+function showFormToast(message, isSuccess) {
+  var container = document.getElementById('gbase-toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'gbase-toast-container';
+    container.style.cssText = 'position:fixed;top:24px;right:24px;z-index:9999;min-width:300px;max-width:420px;';
+    document.body.appendChild(container);
+  }
+
+  var toastEl = document.createElement('div');
+  toastEl.className = 'toast align-items-center border-0';
+  toastEl.setAttribute('role', 'alert');
+  toastEl.setAttribute('aria-live', 'assertive');
+  toastEl.setAttribute('aria-atomic', 'true');
+  toastEl.style.cssText = [
+    'margin-bottom:10px;',
+    'box-shadow:0 4px 16px rgba(0,0,0,0.18);',
+    'border-radius:8px;',
+    isSuccess ? 'background:#d4edda;color:#155724;' : 'background:#f8d7da;color:#721c24;'
+  ].join('');
+
+  var icon = isSuccess
+    ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;margin-right:10px;"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>'
+    : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink:0;margin-right:10px;"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>';
+
+  toastEl.innerHTML =
+    '<div class="d-flex align-items-center" style="padding:14px 16px;">' +
+      icon +
+      '<div style="font-size:14px;font-weight:500;line-height:1.4;">' + message + '</div>' +
+      '<button type="button" style="margin-left:auto;background:none;border:none;cursor:pointer;opacity:0.6;font-size:20px;line-height:1;padding:0 0 0 12px;" onclick="this.closest(\'.toast\').remove();" aria-label="Close">&times;</button>' +
+    '</div>';
+
+  container.appendChild(toastEl);
+
+  // Auto-remove after 6 s
+  var removeTimer = setTimeout(function () { toastEl.remove(); }, 6000);
+  toastEl.querySelector('button').addEventListener('click', function () {
+    clearTimeout(removeTimer);
+  });
+}
+
+// -----------------------------------------------------------------------
 // Contact form AJAX submission — handles all .gbase-contact-form forms
 // Works from any subdirectory because it uses the absolute /send_mail.php path.
 // -----------------------------------------------------------------------
@@ -136,30 +180,13 @@ document.addEventListener('DOMContentLoaded', function () {
       fetch(mailPath, { method: 'POST', body: formData })
         .then(function (res) { return res.json(); })
         .then(function (data) {
-          var msgDiv = form.querySelector('.form-response-msg');
-          if (!msgDiv) {
-            msgDiv = document.createElement('div');
-            msgDiv.className = 'form-response-msg';
-            msgDiv.style.cssText = 'margin-top:14px;padding:12px 16px;border-radius:6px;font-size:15px;font-weight:500;';
-            form.appendChild(msgDiv);
-          }
-          if (data.success) {
-            msgDiv.style.background = '#d4edda';
-            msgDiv.style.color = '#155724';
-            msgDiv.style.border = '1px solid #c3e6cb';
-            msgDiv.textContent = data.message;
-            form.reset();
-          } else {
-            msgDiv.style.background = '#f8d7da';
-            msgDiv.style.color = '#721c24';
-            msgDiv.style.border = '1px solid #f5c6cb';
-            msgDiv.textContent = data.message;
-          }
+          showFormToast(data.message, data.success);
+          if (data.success) form.reset();
           if (btn) { btn.textContent = originalText; btn.disabled = false; }
         })
         .catch(function () {
           if (btn) { btn.textContent = originalText; btn.disabled = false; }
-          alert('Network error. Please check your connection and try again.');
+          showFormToast('Network error. Please check your connection and try again.', false);
         });
     });
   });
