@@ -205,7 +205,19 @@ document.addEventListener('DOMContentLoaded', function () {
       var originalText = btn ? btn.textContent : '';
       if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
 
+      // Collect all field names so the server can include only this form's fields
+      var fieldNames = [];
+      form.querySelectorAll('input[name], select[name], textarea[name]').forEach(function (el) {
+        if (el.disabled) return;
+        var type = (el.getAttribute('type') || '').toLowerCase();
+        if (type === 'submit' || type === 'button') return;
+        var name = el.getAttribute('name');
+        if (!name) return;
+        if (fieldNames.indexOf(name) === -1) fieldNames.push(name);
+      });
+
       var formData = new FormData(form);
+      formData.set('_field_list', JSON.stringify(fieldNames));
 
       // Compute path to send_mail.php relative to current page depth
       var depth = window.location.pathname.replace(/\/[^/]*$/, '').split('/').filter(Boolean).length;
@@ -342,6 +354,19 @@ function setupMultiSelect() {
     var container = ensureContainer(sortingWrap, 'sorting-selected-list');
     renderTags(container, selected);
   }
+  
+  function updateSortingCriteriaTags() {
+    var selected = [];
+    var criteriaInput = document.querySelector('.multi-dropdown input[name="sorting_criteria[]"]');
+    var criteriaWrap = criteriaInput ? criteriaInput.closest('.multi-wrap') : null;
+    if (!criteriaWrap) return;
+    criteriaWrap.querySelectorAll('input[name="sorting_criteria[]"]:checked').forEach(function (cb) {
+      selected.push(cb.value);
+    });
+
+    var container = ensureContainer(criteriaWrap, 'sorting-criteria-selected-list');
+    renderTags(container, selected);
+  }
 
   document.querySelectorAll('.multi-dropdown input').forEach(function (input) {
     input.addEventListener('change', function () {
@@ -350,6 +375,7 @@ function setupMultiSelect() {
       if (input.name === 'freezing_equipment[]') updateFreezingTags();
       if (input.name === 'heating_equipment[]') updateHeatingTags();
       if (input.name === 'equipment_options[]') updateSortingTags();
+      if (input.name === 'sorting_criteria[]') updateSortingCriteriaTags();
     });
   });
 
@@ -359,6 +385,7 @@ function setupMultiSelect() {
   updateFreezingTags();
   updateHeatingTags();
   updateSortingTags();
+  updateSortingCriteriaTags();
 
   // Close dropdowns on outside click
   document.addEventListener('click', function (e) {
