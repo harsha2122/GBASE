@@ -26,10 +26,12 @@
         <a href="{{ route('contact-details.index') }}">Contact Details</a>
         <a href="{{ route('submissions.index') }}">Submissions</a>
         <hr>
-        <form method="POST" action="{{ route('logout') }}" class="ps-3">
-            @csrf
-            <button type="submit" class="btn btn-sm btn-light">Logout</button>
-        </form>
+        <div class="ps-3">
+            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-light">Logout</button>
+            </form>
+        </div>
     </div>
     <div class="main-content">
         @if ($errors->any())
