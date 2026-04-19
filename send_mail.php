@@ -188,7 +188,7 @@ $body = implode("\n", $lines);
 // -----------------------------------------------------------------------
 // Send email via PHP mail()
 // -----------------------------------------------------------------------
-$to = trim('info@gbase.co.in');
+$to = trim('gbasetechnologies.info@gmail.com');
 $subject = "GBASE Enquiry from {$company} ({$final_country})";
 
 // Use a domain address in From so Hostinger's MTA accepts it.
