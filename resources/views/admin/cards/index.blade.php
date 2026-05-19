@@ -1,21 +1,18 @@
 @extends('layouts.admin')
 
 @section('title', 'Service Cards')
-@section('page_title', 'Manage Service Cards')
+@section('page_title', 'Service Cards')
 
 @section('content')
 <div class="space-y-6">
     <!-- Header -->
     <div class="flex items-center justify-between">
         <div>
-            <h2 class="text-3xl font-bold text-gray-800">Service Cards</h2>
-            <p class="text-gray-600 mt-1">Manage service/feature cards</p>
+            <p class="text-gray-400 text-sm">Manage feature and service cards</p>
         </div>
-        <a href="{{ route('cards.create') }}" class="admin-btn-primary">
-            <span class="flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/></svg>
-                New Card
-            </span>
+        <a href="{{ route('cards.create') }}" class="btn-primary flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/></svg>
+            New Card
         </a>
     </div>
 
@@ -23,28 +20,38 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @if($cards && $cards->count() > 0)
             @foreach($cards as $card)
-                <div class="admin-card">
+                <div class="admin-card group hover:shadow-xl hover:shadow-primary/20 transition-all">
                     @if($card->image)
-                        <img src="{{ asset('storage/' . $card->image) }}" alt="{{ $card->title }}" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <div class="mb-4 overflow-hidden rounded-lg h-40">
+                            <img src="{{ asset('storage/' . $card->image) }}" alt="{{ $card->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        </div>
+                    @else
+                        <div class="mb-4 bg-gradient-primary rounded-lg h-40 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white opacity-30" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/></svg>
+                        </div>
                     @endif
-                    <h3 class="text-lg font-bold text-gray-800">{{ $card->title }}</h3>
-                    <p class="text-gray-600 text-sm mt-2 line-clamp-2">{{ $card->description }}</p>
-                    <p class="text-gray-500 text-xs mt-3">Page: {{ $card->page ?? 'Unassigned' }}</p>
-                    <div class="flex gap-3 mt-4">
-                        <a href="{{ route('cards.edit', $card) }}" class="flex-1 text-center text-blue-600 hover:text-blue-700 font-medium">Edit</a>
-                        <form method="POST" action="{{ route('cards.destroy', $card) }}" style="display: inline; flex: 1;" onsubmit="return confirm('Are you sure?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="w-full text-red-600 hover:text-red-700 font-medium">Delete</button>
-                        </form>
+                    
+                    <h3 class="text-lg font-bold text-white mb-2">{{ $card->title }}</h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">{{ $card->description }}</p>
+                    
+                    <div class="flex items-center justify-between pt-4 border-t border-border">
+                        <span class="text-xs text-gray-500">{{ $card->page ? 'Page: ' . $card->page : 'Unassigned' }}</span>
+                        <div class="flex gap-2">
+                            <a href="{{ route('cards.edit', $card) }}" class="text-primary hover:text-secondary font-medium text-xs">Edit</a>
+                            <form method="POST" action="{{ route('cards.destroy', $card) }}" style="display: inline;" onsubmit="return confirm('Delete?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-400 hover:text-red-300 font-medium text-xs">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             @endforeach
         @else
-            <div class="col-span-full text-center py-12 admin-card">
-                <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m0 0h6m0 0h6"/></svg>
-                <p class="text-gray-500 text-lg">No cards found</p>
-                <a href="{{ route('cards.create') }}" class="text-blue-600 hover:text-blue-700 mt-2 inline-block">Create your first card</a>
+            <div class="col-span-full admin-card text-center py-16">
+                <svg class="w-16 h-16 text-gray-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                <p class="text-gray-400">No cards created yet</p>
+                <a href="{{ route('cards.create') }}" class="text-primary hover:text-secondary mt-4 inline-block">Create your first card →</a>
             </div>
         @endif
     </div>
