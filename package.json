@@ -1,0 +1,24 @@
+{
+  "name": "gbase-cms",
+  "version": "1.0.0",
+  "description": "GBASE CMS - Food Processing Solutions",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "autoprefixer": "^10.4.18",
+    "laravel-vite-plugin": "^1.0.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.0.10"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.7",
+    "axios": "^1.6.7",
+    "sortablejs": "^1.15.0"
+  }
+}

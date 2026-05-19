@@ -10,7 +10,8 @@ class CardController extends Controller
 {
     public function index()
     {
-        return view('admin.cards.index', ['cards' => Card::all()]);
+        $cards = Card::paginate(12);
+        return view('admin.cards.index', ['cards' => $cards]);
     }
 
     public function create()
@@ -53,7 +54,9 @@ class CardController extends Controller
             'order' => 'integer',
         ]);
 
-        if ($request->hasFile('image')) {
+        if ($request->has('remove_image')) {
+            $validated['image'] = null;
+        } elseif ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('cards', 'public');
         }
 

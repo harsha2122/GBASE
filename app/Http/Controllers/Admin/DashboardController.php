@@ -13,11 +13,10 @@ class DashboardController extends Controller
     public function index()
     {
         return view('admin.dashboard', [
-            'pages_count' => Page::count(),
-            'machines_count' => Machine::count(),
-            'cards_count' => Card::count(),
-            'submissions_count' => Submission::count(),
-            'new_submissions' => Submission::where('status', 'new')->count(),
+            'total_pages' => Page::count(),
+            'total_machines' => Machine::count(),
+            'total_cards' => Card::count(),
+            'total_submissions' => Submission::where('status', 'new')->count(),
             'recent_submissions' => Submission::latest()->limit(5)->get(),
         ]);
     }

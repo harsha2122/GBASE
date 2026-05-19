@@ -10,9 +10,21 @@ use Illuminate\Support\Facades\Mail;
 
 class SubmissionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.submissions.index', ['submissions' => Submission::latest()->paginate(15)]);
+        $query = Submission::query();
+
+        if ($request->has('search') && $request->search) {
+            $query->where('name', 'like', '%' . $request->search . '%')
+                  ->orWhere('email', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->has('status') && $request->status) {
+            $query->where('status', $request->status);
+        }
+
+        $submissions = $query->latest()->paginate(15);
+        return view('admin.submissions.index', ['submissions' => $submissions]);
     }
 
     public function show(Submission $submission)
@@ -36,16 +48,20 @@ class SubmissionController extends Controller
             'sent_email' => false
         ]);
 
-        try {
-            Mail::send('emails.submission-reply', ['submission' => $submission, 'reply' => $reply], function($m) use ($submission) {
-                $m->to($submission->email)->subject('Re: ' . ($submission->subject ?? 'Your Inquiry'));
-            });
-            $reply->update(['sent_email' => true]);
-        } catch (\Exception $e) {
-            return back()->with('error', 'Message sent but email failed');
+        $sendEmail = $request->has('send_email');
+
+        if ($sendEmail) {
+            try {
+                Mail::send('emails.submission-reply', ['submission' => $submission, 'reply' => $reply], function($m) use ($submission) {
+                    $m->to($submission->email)->subject('Re: ' . ($submission->subject ?? 'Your Inquiry'));
+                });
+                $reply->update(['sent_email' => true]);
+            } catch (\Exception $e) {
+                return back()->with('error', 'Reply saved but email failed: ' . $e->getMessage());
+            }
         }
 
         $submission->update(['status' => 'replied']);
-        return redirect()->route('submissions.show', $submission)->with('success', 'Reply sent');
+        return redirect()->route('submissions.show', $submission)->with('success', 'Reply saved' . ($sendEmail ? ' and email sent' : ''));
     }
 }

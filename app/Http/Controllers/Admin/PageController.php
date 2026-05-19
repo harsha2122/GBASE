@@ -8,9 +8,17 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.pages.index', ['pages' => Page::all()]);
+        $query = Page::query();
+
+        if ($request->has('search') && $request->search) {
+            $query->where('title', 'like', '%' . $request->search . '%')
+                  ->orWhere('slug', 'like', '%' . $request->search . '%');
+        }
+
+        $pages = $query->paginate(10);
+        return view('admin.pages.index', ['pages' => $pages]);
     }
 
     public function create()
@@ -53,7 +61,9 @@ class PageController extends Controller
             'breadcrumb' => 'nullable',
         ]);
 
-        if ($request->hasFile('hero_image')) {
+        if ($request->has('remove_hero_image')) {
+            $validated['hero_image'] = null;
+        } elseif ($request->hasFile('hero_image')) {
             $validated['hero_image'] = $request->file('hero_image')->store('pages', 'public');
         }
 

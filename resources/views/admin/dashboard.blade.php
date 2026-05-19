@@ -1,70 +1,114 @@
 @extends('layouts.admin')
 
 @section('title', 'Dashboard')
+@section('page_title', 'Dashboard')
 
 @section('content')
-<h1>Admin Dashboard</h1>
-<hr>
+<div class="space-y-8">
+    <!-- Statistics Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Pages Card -->
+        <div class="admin-card">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm font-medium">Total Pages</p>
+                    <p class="text-3xl font-bold text-gray-800 mt-2">{{ $total_pages ?? 0 }}</p>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg">
+                    <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H4a1 1 0 110-2V4z"/></svg>
+                </div>
+            </div>
+        </div>
 
-<div class="row">
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Pages</h5>
-                <p class="card-text text-primary" style="font-size: 2em;">{{ $pages_count }}</p>
+        <!-- Machines Card -->
+        <div class="admin-card">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm font-medium">Total Machines</p>
+                    <p class="text-3xl font-bold text-gray-800 mt-2">{{ $total_machines ?? 0 }}</p>
+                </div>
+                <div class="bg-green-100 p-3 rounded-lg">
+                    <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M7 3a1 1 0 000 2h6a1 1 0 000-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7z"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards Card -->
+        <div class="admin-card">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm font-medium">Service Cards</p>
+                    <p class="text-3xl font-bold text-gray-800 mt-2">{{ $total_cards ?? 0 }}</p>
+                </div>
+                <div class="bg-purple-100 p-3 rounded-lg">
+                    <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h12a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6z"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submissions Card -->
+        <div class="admin-card">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm font-medium">New Submissions</p>
+                    <p class="text-3xl font-bold text-gray-800 mt-2">{{ $total_submissions ?? 0 }}</p>
+                </div>
+                <div class="bg-orange-100 p-3 rounded-lg">
+                    <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 20 20"><path d="M2.5 1A1.5 1.5 0 001 2.5v15A1.5 1.5 0 002.5 19h15a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0017.5 1h-15z"/></svg>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Machines</h5>
-                <p class="card-text text-success" style="font-size: 2em;">{{ $machines_count }}</p>
-            </div>
+
+    <!-- Recent Submissions -->
+    <div class="admin-card">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xl font-bold text-gray-800">Recent Submissions</h3>
+            <a href="{{ route('submissions.index') }}" class="text-blue-600 hover:text-blue-700 text-sm font-medium">View All →</a>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Cards</h5>
-                <p class="card-text text-warning" style="font-size: 2em;">{{ $cards_count }}</p>
+
+        @if($recent_submissions && $recent_submissions->count() > 0)
+            <div class="overflow-x-auto">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($recent_submissions as $submission)
+                            <tr>
+                                <td class="font-medium text-gray-900">{{ $submission->name }}</td>
+                                <td class="text-gray-600">{{ $submission->email }}</td>
+                                <td class="text-gray-600">{{ Str::limit($submission->subject, 30) }}</td>
+                                <td class="text-gray-600 text-sm">{{ $submission->created_at->format('M d, Y') }}</td>
+                                <td>
+                                    @if($submission->status === 'new')
+                                        <span class="badge-warning">New</span>
+                                    @elseif($submission->status === 'replied')
+                                        <span class="badge-success">Replied</span>
+                                    @else
+                                        <span class="badge-danger">Spam</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('submissions.show', $submission) }}" class="text-blue-600 hover:text-blue-700 font-medium text-sm">View</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Submissions</h5>
-                <p class="card-text text-danger" style="font-size: 2em;">{{ $new_submissions }} New</p>
+        @else
+            <div class="text-center py-8">
+                <p class="text-gray-500">No submissions yet</p>
             </div>
-        </div>
+        @endif
     </div>
 </div>
-
-<hr>
-<h3>Recent Submissions</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Subject</th>
-            <th>Status</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($recent_submissions as $submission)
-            <tr>
-                <td>{{ $submission->name }}</td>
-                <td>{{ $submission->email }}</td>
-                <td>{{ $submission->subject ?? 'N/A' }}</td>
-                <td><span class="badge bg-{{ $submission->status === 'new' ? 'danger' : 'success' }}">{{ ucfirst($submission->status) }}</span></td>
-                <td>{{ $submission->created_at->format('Y-m-d') }}</td>
-                <td><a href="{{ route('submissions.show', $submission) }}" class="btn btn-sm btn-info">View</a></td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
 @endsection
