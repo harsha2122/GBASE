@@ -6,19 +6,19 @@
     <title>@yield('title', 'Dashboard') - GBASE Admin</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-darker">
-    <div class="flex h-screen bg-darker">
+<body class="bg-light-bg">
+    <div class="flex h-screen bg-light-bg">
         <!-- Sidebar -->
-        <div class="w-72 bg-darker border-r border-border flex flex-col">
+        <div class="w-64 bg-white border-r border-light-border flex flex-col">
             <!-- Logo -->
-            <div class="p-6 border-b border-border">
+            <div class="p-6 border-b border-light-border">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM15.657 14.243a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM11 17a1 1 0 102 0v-1a1 1 0 10-2 0v1zM5.757 15.657a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zM5.757 4.343a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707z"/></svg>
+                    <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM15.657 14.243a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM11 17a1 1 0 102 0v-1a1 1 0 10-2 0v1zM5.757 15.657a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zM5.757 4.343a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l.707-.707z"/></svg>
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold text-white">GBASE</h1>
-                        <p class="text-xs text-gray-400">CMS Control</p>
+                        <h1 class="text-xl font-bold text-light-text">GBASE</h1>
+                        <p class="text-xs text-light-subtext">CMS Control</p>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             </nav>
 
             <!-- Logout -->
-            <div class="p-4 border-t border-border">
+            <div class="p-4 border-t border-light-border">
                 <form method="POST" action="{{ route('logout') }}" class="w-full">
                     @csrf
                     <button type="submit" class="w-full btn-danger py-2">
@@ -73,15 +73,15 @@
         <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Header -->
-            <header class="bg-card border-b border-border z-10 shadow-lg">
+            <header class="bg-white border-b border-light-border z-10 shadow-sm">
                 <div class="px-8 py-4 flex items-center justify-between">
-                    <h2 class="text-2xl font-bold text-white">@yield('page_title', 'Dashboard')</h2>
+                    <h2 class="text-2xl font-bold text-light-text">@yield('page_title', 'Dashboard')</h2>
                     <div class="flex items-center space-x-6">
                         <div class="text-right">
-                            <p class="text-gray-300 text-sm">{{ auth()->user()->email ?? 'Administrator' }}</p>
-                            <p class="text-gray-500 text-xs">Admin Account</p>
+                            <p class="text-light-text text-sm">{{ auth()->user()->email ?? 'Administrator' }}</p>
+                            <p class="text-light-subtext text-xs">Admin Account</p>
                         </div>
-                        <div class="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center">
                             <span class="text-white font-bold text-sm">{{ strtoupper(substr(auth()->user()->email ?? 'A', 0, 1)) }}</span>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
             </header>
 
             <!-- Content Area -->
-            <main class="flex-1 overflow-auto bg-darker p-8">
+            <main class="flex-1 overflow-auto bg-light-bg p-8">
                 <!-- Alerts -->
                 @if ($errors->any())
                     <div class="alert-error mb-6" x-data="{ open: true }" x-show="open">
