@@ -4,19 +4,28 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Card;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $cards = Card::paginate(12);
-        return view('admin.cards.index', ['cards' => $cards]);
+        $query = Card::query();
+
+        if ($request->has('page_id') && $request->page_id) {
+            $query->where('page_id', $request->page_id);
+        }
+
+        $cards = $query->paginate(12);
+        $pages = Page::all();
+        return view('admin.cards.index', ['cards' => $cards, 'pages' => $pages]);
     }
 
     public function create()
     {
-        return view('admin.cards.create');
+        $pages = Page::all();
+        return view('admin.cards.create', ['pages' => $pages]);
     }
 
     public function store(Request $request)
@@ -26,7 +35,8 @@ class CardController extends Controller
             'description' => 'nullable',
             'icon' => 'nullable',
             'image' => 'nullable|image',
-            'page' => 'required',
+            'page_id' => 'nullable|exists:pages,id',
+            'page' => 'nullable',
             'order' => 'integer',
         ]);
 
@@ -40,7 +50,8 @@ class CardController extends Controller
 
     public function edit(Card $card)
     {
-        return view('admin.cards.edit', ['card' => $card]);
+        $pages = Page::all();
+        return view('admin.cards.edit', ['card' => $card, 'pages' => $pages]);
     }
 
     public function update(Request $request, Card $card)
@@ -50,7 +61,8 @@ class CardController extends Controller
             'description' => 'nullable',
             'icon' => 'nullable',
             'image' => 'nullable|image',
-            'page' => 'required',
+            'page_id' => 'nullable|exists:pages,id',
+            'page' => 'nullable',
             'order' => 'integer',
         ]);
 
